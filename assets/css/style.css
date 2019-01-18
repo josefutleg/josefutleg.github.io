@@ -116,7 +116,7 @@ button:hover,
   }
 }
 
-@media screen and (max-width: 414px) {
+@media only screen and (max-width: 600px) {
   button {
     background-color: lightcoral;
     margin-left: 8px;
