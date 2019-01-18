@@ -20,14 +20,14 @@ var projects = [
       "npm package - request"
     ],
     images: [
-        "assets/images/dig/dig-01.png",
-        "assets/images/dig/dig-02.png",
-        "assets/images/dig/dig-03.png",
-        "assets/images/dig/dig-04.png",
-        "assets/images/dig/dig-05.png",
-        "assets/images/dig/dig-06.png",
-        "assets/images/dig/dig-07.png",
-      ]
+      "assets/images/dig/dig-01.png",
+      "assets/images/dig/dig-02.png",
+      "assets/images/dig/dig-03.png",
+      "assets/images/dig/dig-04.png",
+      "assets/images/dig/dig-05.png",
+      "assets/images/dig/dig-06.png",
+      "assets/images/dig/dig-07.png"
+    ]
   },
   {
     //liri
@@ -47,9 +47,12 @@ var projects = [
       "npm package - dotenv"
     ],
     images: [
-        "assets/images/liri/liri-01.png",
-        "assets/images/liri/liri-02.png",
-      ]
+      "assets/images/liri/liri-01.png",
+      "assets/images/liri/liri-02.png",
+      "assets/images/liri/liri-03.png",
+      "assets/images/liri/liri-04.png",
+      "assets/images/liri/liri-05.png",
+    ]
   },
   {
     //scraper
@@ -66,14 +69,19 @@ var projects = [
     link: "https://github.com/josefutleg/hw-8-bamazon",
     description:
       "Node.js based application that allows user to shop for products within Bamazon's inventory. Using MySQL to store inventory and npm package Inquirer, Bamazon will display all inventory, drink type, drink name, and price. Once user selects drink and quantity, Bamazon will check stock to make sure stock meets user's quantity request. If there is sufficient stock, transaction will complete and update database's inventory, otherwise Bamazon will notify user there is insufficient is and restart the inquiries.",
-    tools: ["MySQL", "Node.js", "npm package - mysql", "npm package - inquirer"],
+    tools: [
+      "MySQL",
+      "Node.js",
+      "npm package - mysql",
+      "npm package - inquirer"
+    ],
     images: [
-        "assets/images/bamazon/01-bamazon_db-Before Purchase.png",
-        "assets/images/bamazon/02-bamazon-Select Drink Type.png",
-        "assets/images/bamazon/03-bamazon-Node Sample.png",
-        "assets/images/bamazon/04-bamazon_db-After Purchase.png",
-        "assets/images/bamazon/05-bamazon-Insufficient Quantity.png"
-      ]
+      "assets/images/bamazon/01-bamazon_db-Before Purchase.png",
+      "assets/images/bamazon/02-bamazon-Select Drink Type.png",
+      "assets/images/bamazon/03-bamazon-Node Sample.png",
+      "assets/images/bamazon/04-bamazon_db-After Purchase.png",
+      "assets/images/bamazon/05-bamazon-Insufficient Quantity.png"
+    ]
   },
   {
     //memelash
@@ -109,20 +117,50 @@ var projects = [
   }
 ];
 var nav = $(".navContainer");
+var aboutDisp = $(".aboutContainer");
+var contactDisp = $(".contactContainer");
 var disp = $(".displayContainer");
+var projDisp = $(".projectContainer");
 var imgDisp = $(".imageContainer");
 
 for (i in indexes) {
-  var iButton = $("<button>").text(indexes[i]);
+  var iButton = $("<button>")
+    .text(indexes[i])
+    .addClass("navButton");
   nav.append(iButton);
+  nav.attr("id", "open");
 }
+// nav bar
+nav.on("click", "button", function() {
+  var button = $(this).text();
+  if (button == "About") {
+    $(".navButton").removeClass("active");
+    $(this).addClass("active");
+    displayAbout();
+  }
+  if (button == "Contact") {
+    $(".navButton").removeClass("active");
+    $(this).addClass("active");
+    displayContact();
+  }
+  if (button == "Projects") {
+    $(".navButton").removeClass("active");
+    $(this).addClass("active");
+    displayProjects();
+  }
+});
+
 function displayProjects() {
-  disp.empty();
-  imgDisp.empty();  
-  disp.removeAttr("id", "info");
+  $(window).scrollTop(0);
+  disp.removeAttr("id", "flyIn").empty();
+  aboutDisp.removeAttr("id", "flyIn").empty();
+  contactDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.removeAttr("id", "flyIn").empty();
+  projDisp.removeAttr("id", "info").empty();
+  disp.attr("id", "flyIn");
   for (p in projects) {
     var response = projects[p];
-    console.log(response);
+    // console.log(response);
     var projectDiv = $("<div>").addClass("project");
     var pButton = $("<button>")
       .addClass("pButton")
@@ -142,39 +180,35 @@ function displayProjects() {
 }
 
 function displayAbout() {
-  disp.empty();
-  imgDisp.empty();
-  disp.removeAttr("id", "info");
+  $(window).scrollTop(0);
+  aboutDisp.empty();
+  disp.removeAttr("id", "flyIn").empty();
+  projDisp.removeAttr("id", "info").empty();
+  contactDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.removeAttr("id", "flyIn").empty();
+  aboutDisp.attr("id", "flyIn");
   var header = $("<h1>").text("About Me");
-  disp.append(header);
+  aboutDisp.append(header);
 }
 
 function displayContact() {
-  disp.empty();
-  imgDisp.empty();
-  disp.removeAttr("id", "info");
+  $(window).scrollTop(0);
+  contactDisp.empty();
+  disp.removeAttr("id", "flyIn").empty();
+  projDisp.removeAttr("id", "info").empty();
+  aboutDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.removeAttr("id", "flyIn").empty();
+  contactDisp.attr("id", "flyIn");
   var header = $("<h1>").text("Contact Me");
-  disp.append(header);
+  contactDisp.append(header);
 }
 
-nav.on("click", "button", function() {
-  var button = $(this).text();
-  // alert(button);
-  if (button == "Projects") {
-    displayProjects();
-  }
-  if (button == "About") {
-    displayAbout();
-  }
-  if (button == "Contact") {
-    displayContact();
-  }
-});
-
+//view button function
 disp.on("click", ".pButton", function() {
-  disp.empty();
-  imgDisp.empty();
-  disp.attr("id", "info");
+  $(window).scrollTop(0);
+  disp.removeAttr("id", "flyIn").empty();
+  imgDisp.removeAttr("id", "flyIn").empty();
+  projDisp.attr("id", "info");
   var v = $(this).attr("data-value");
   var title = projects[v].title;
   var description = projects[v].description;
@@ -184,6 +218,11 @@ disp.on("click", ".pButton", function() {
   var titleH = $("<h2>")
     .addClass("title")
     .text(title);
+  var linkDom = $("<a>")
+    .attr("href", link)
+    .attr("id", "link")
+    .attr("target", "_blank")
+    .text(`GitHub Repository`);
   var descP = $("<p>")
     .addClass("desc")
     .text(description);
@@ -191,20 +230,21 @@ disp.on("click", ".pButton", function() {
     .addClass("listH")
     .text("Tools");
   var toolsList = $("<ul>").addClass("list");
-  disp
+  projDisp
     .append(titleH)
     .append(descP)
     .append(toolsH);
   for (t in tools) {
-    console.log(tools[t]);
+    // console.log(tools[t]);
     var toolsItem = $("<li>")
       .attr("id", "item")
       .text(tools[t]);
     toolsList.append(toolsItem);
-    disp.append(toolsList);
+    projDisp.append(toolsList);
   }
+  projDisp.append(linkDom);
   for (i in images) {
-    console.log(images[i]);
+    // console.log(images[i]);
     var docImg = $("<img>")
       .attr("src", images[i])
       .attr("alt", i)
