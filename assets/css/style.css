@@ -52,7 +52,6 @@ button:hover,
 }
 
 .project {
-  background-color: bisque;
   width: 150px;
   height: 150px;
   float: left;
@@ -117,7 +116,7 @@ button:hover,
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media screen and (max-width: 414px) {
   button {
     background-color: lightcoral;
     margin-left: 8px;
