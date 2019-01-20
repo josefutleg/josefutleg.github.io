@@ -1,5 +1,7 @@
 var indexes = ["About", "Contact", "Projects"];
 
+var profilePic = "assets/images/profilePic.JPG";
+
 var projects = [
   {
     //dig
@@ -189,6 +191,8 @@ function displayAbout() {
   aboutDisp.attr("id", "flyIn");
   var header = $("<h1>").text("About Me");
   aboutDisp.append(header);
+  var profDisp = $("<img>").attr("src", profilePic).attr("id", "profileImg").attr("alt", "me");
+  aboutDisp.append(profDisp);
 }
 
 function displayContact() {

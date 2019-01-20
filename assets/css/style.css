@@ -98,6 +98,11 @@ button:hover,
   background-color: indianred;
 }
 
+#profileImg {
+  float: left;
+  width: 40%;
+}
+
 @keyframes flyIn {
   0% {
     transform: translateX(200%);
@@ -143,7 +148,7 @@ button:hover,
     margin-bottom: 12px;
   }
   #info {
-    width: 96%
+    width: 96%;
   }
   .desc,
   .pTag,
@@ -152,5 +157,9 @@ button:hover,
   }
   .pName {
     font-size: 25px;
+  }
+  #profileImg {
+    clear: both;
+    width: 94%;
   }
 }
