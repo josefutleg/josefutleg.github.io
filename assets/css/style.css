@@ -24,7 +24,7 @@ button:hover,
   float: left;
   width: 63%;
   height: 400px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .navContainer {
@@ -55,7 +55,6 @@ button:hover,
   width: 150px;
   height: 150px;
   float: left;
-  overflow: scroll;
   margin: 1%;
   padding: 10px;
   text-align: center;
