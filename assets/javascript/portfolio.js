@@ -6,11 +6,17 @@ var triviaGame = "https://josefutleg.github.io/TriviaGame/";
 
 var wordGuessGame = "https://josefutleg.github.io/word-guess-game/";
 
+var bio = [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue odio, venenatis eu gravida id, facilisis ac purus. Donec sed est in diam luctus malesuada. Cras vitae elit ac nulla semper molestie. Aliquam enim nulla, condimentum vel dolor eget, posuere molestie leo. Duis consequat porta bibendum. In vestibulum enim non urna ornare, ullamcorper commodo elit congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi purus sem, fringilla at mollis vitae, efficitur vitae mauris. Donec interdum elit non erat iaculis, quis interdum orci maximus. Phasellus finibus ac nisl at tincidunt. Curabitur vulputate gravida justo, et aliquam arcu vehicula vel.",
+    "Curabitur eleifend enim sed purus efficitur, vel suscipit odio sollicitudin. Fusce ultrices, massa a euismod aliquam, augue erat varius risus, sit amet auctor est sapien eget magna. Suspendisse vitae blandit tellus. Cras ligula justo, convallis vel ultricies quis, pellentesque eu sem. Curabitur faucibus nisl tortor, id iaculis metus pulvinar nec. Phasellus vel lectus nec tellus lobortis luctus. Curabitur magna sapien, interdum non interdum ac, faucibus nec augue. Vivamus ullamcorper arcu nec lacus hendrerit, eget lobortis purus rhoncus. Aliquam vehicula dui sed sagittis pulvinar. Proin imperdiet congue convallis. Nullam a diam in sapien finibus porttitor.",
+    "Nullam ultricies eu metus et finibus. Vivamus eget rutrum leo. Integer posuere ultricies fermentum. Aliquam at tortor lectus. Maecenas aliquet dui a vestibulum interdum. Sed facilisis mauris ac odio blandit, nec blandit magna eleifend. Morbi hendrerit scelerisque metus at ullamcorper. Vestibulum accumsan erat at enim faucibus condimentum. Sed id efficitur velit. Cras et eleifend lectus. Phasellus ultricies orci eget sapien tempus accumsan. Phasellus imperdiet risus ut tincidunt cursus. Nulla gravida at quam in elementum."
+]
+
 var contactInfo = {
-  email: "josefutleg@gmail.com",
+  email: "mailto:josefutleg@gmail.com",
   linkedin: "https://www.linkedin.com/in/josef-utleg/",
   github: "https://github.com/josefutleg",
-  phone: "(415)309-3776"
+  phone: "14153093776"
 };
 
 var projects = [
@@ -242,13 +248,18 @@ function displayAbout() {
   contactDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "").empty();
   aboutDisp.attr("id", "flyIn");
-  var header = $("<h1>").text("About Me");
-  aboutDisp.append(header);
+  var bioDiv = $("<div>").attr("id", "bioP")
   var profDisp = $("<img>")
     .attr("src", profilePic)
     .attr("id", "profileImg")
     .attr("alt", "me");
-  aboutDisp.append(profDisp);
+    for (i in bio){
+        var bioDisp = $("<p>")
+        .text(bio[i]);
+        bioDiv.append(bioDisp);
+    }
+
+  aboutDisp.append(profDisp).append(bioDiv);
 }
 
 function displayContact() {
@@ -259,14 +270,51 @@ function displayContact() {
   aboutDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "").empty();
   contactDisp.attr("id", "flyIn");
-  var header = $("<h1>").text("Contact Me");
-//   var
-  contactDisp.append(header);
+  var email = $("<a>")
+    .attr("href", contactInfo.email)
+    .addClass("link")
+    .text("Gmail");
+  var emailP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "email");
+  var linkedin = $("<a>")
+    .attr("href", contactInfo.linkedin)
+    .attr("target", "_blank")
+    .addClass("link")
+    .text("LinkedIn");
+  var linkedP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "linkedIn");
+  var github = $("<a>")
+    .attr("href", contactInfo.github)
+    .attr("target", "_blank")
+    .addClass("link")
+    .text("GitHub");
+  var gitP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "gitHub");
+  var phone = $("<a>")
+    .attr("href", `tel:${contactInfo.phone}`)
+    .addClass("link")
+    .text("Phone");
+  var phoneP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "phone");
+  emailP.append(email);
+  linkedP.append(linkedin);
+  gitP.append(github);
+  phoneP.append(phone);
+  contactDisp
+    .append(phoneP)
+    .append(emailP)
+    .append(linkedP)
+    .append(gitP);
 }
 
 //view button function
 disp.on("click", ".pButton", function() {
   $(window).scrollTop(0);
+  $(".navButton").removeClass("active");
   disp.removeAttr("id", "flyIn").empty();
   imgDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "400px");
