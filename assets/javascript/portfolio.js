@@ -2,6 +2,17 @@ var indexes = ["About", "Contact", "Projects"];
 
 var profilePic = "assets/images/profilePic.JPG";
 
+var triviaGame = "https://josefutleg.github.io/TriviaGame/";
+
+var wordGuessGame = "https://josefutleg.github.io/word-guess-game/";
+
+var contactInfo = {
+  email: "josefutleg@gmail.com",
+  linkedin: "https://www.linkedin.com/in/josef-utleg/",
+  github: "https://github.com/josefutleg",
+  phone: "(415)309-3776"
+};
+
 var projects = [
   {
     //dig
@@ -9,7 +20,7 @@ var projects = [
     tagline: "Spotify playlist generator",
     link: "https://github.com/josefutleg/dig-app-new",
     description:
-      "Playlist building application using Spotify's API. Users will sign into their Spotify accounts to use search and create functions. Once signed in, users can search for any song they like. If provided by Spotify, users can also play preview snippets of tracks. Once a song is chosen, dig will identify the song's artist and then find related artists and their albums. Dig will then randomly select one or two albums to pull one or two tracks from them to generate a playlist. Once all related artists' albums have been browsed, dig will produce the playlist and append to page for instant listening. Since users are logged into their own Spotify accounts, the newly created playlists can be found in their Spotify applications for later listening. To further explore the depth of Spotify's API, dig also sorts each playlist based on a song's key and tempo. With key as the primary sorting factor, tempo will progressively increase within each key range until the key changes. A database using MongoDB is implemented for archiving all playlists created with the application so a user can browse/preview/add previously created playlists.",
+      "Playlist building application using Spotify's API. Users will sign into their Spotify accounts to use search and create functions. Once signed in, users can search for any song they like. If provided by Spotify, users can also play preview snippets of tracks. Once a song is chosen, dig will identify the song's artist and then find related artists and their albums. Dig will then randomly select one or two albums to pull one or two tracks from them to generate a playlist. Once all related artists' albums have been browsed, dig will produce the playlist and append to page for instant listening. Since users are logged into their own Spotify accounts, the newly created playlists can be found in their Spotify applications for later listening. To further explore the depth of Spotify's API, dig also sorts each playlist based on a song's key and tempo. With key as the primary sorting factor, tempo will progressively increase within each key range until the key changes. A database using MongoDB is implemented for archiving all playlists created with the application so a user can browse/preview/add previously created playlists. Your own personal DJ!",
     tools: [
       "Node.js",
       "React",
@@ -37,7 +48,7 @@ var projects = [
     tagline: "Node based assistant",
     link: "https://github.com/josefutleg/liri-node-app",
     description:
-      "Node.js based assistant application using APIs of Spotify, Twitter, & OMDB. Used npm package Inquirer as way for user to interact with application without having to rerun the application after each task is complete. Liri will provide four options - Find a Movie, Find a Song, Tweet a Message, and Surprise Me. User can then search for a song, movie, tweet a message or use Surprise Me to have Liri decide what will be done.",
+      "Node.js based assistant application using APIs of Spotify, Twitter, & OMDB. Liri will provide four options - Find a Movie, Find a Song, Tweet a Message, and Surprise Me. User can then search for a song, movie, tweet a message or use Surprise Me to have Liri decide what will be done.",
     tools: [
       "Node.js",
       "Spotify's API",
@@ -53,7 +64,7 @@ var projects = [
       "assets/images/liri/liri-02.png",
       "assets/images/liri/liri-03.png",
       "assets/images/liri/liri-04.png",
-      "assets/images/liri/liri-05.png",
+      "assets/images/liri/liri-05.png"
     ]
   },
   {
@@ -61,8 +72,25 @@ var projects = [
     title: "Mongo-Scraper",
     tagline: "Webpage scraper",
     link: "https://github.com/josefutleg/mongo-scraper",
-    description: "placeholder",
-    tools: ["a,b,c,d,e"]
+    description:
+      "Web application that scrapes SF Chronicle's website for articles to read/save. Application uses ejs for the HTML pages, cheerio to scrape SF Chronicle's homepage for recent articles, and MongoDB to store saved articles. User can also comment on saved articles for personal notes/reminders",
+    tools: [
+      "Bootstrap",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "ejs",
+      "npm package - cheerio"
+    ],
+    images: [
+      "assets/images/scraper/scraper-1.png",
+      "assets/images/scraper/scraper-2.png",
+      "assets/images/scraper/scraper-3.png",
+      "assets/images/scraper/scraper-4.png",
+      "assets/images/scraper/scraper-5.png",
+      "assets/images/scraper/scraper-6.png",
+      "assets/images/scraper/scraper-7.png"
+    ]
   },
   {
     //bamazon
@@ -91,8 +119,16 @@ var projects = [
     tagline: "Multiplayer meme-captioning game",
     link: "https://github.com/josefutleg/memelash-firebase",
     description:
-      "Meme-captioning multiplayer game that is played on separate screens using Firebase to handle the real-time aspect.",
-    tools: ["HTML5", "Bootstrap", "jQuery", "Firebase"]
+      "Meme-captioning multiplayer game that is played on separate screens using Firebase to handle the real-time aspect. Project is not complete - Kept running into Firebase issues that would de-sync game info/timer across players' screens.",
+    tools: ["HTML5", "Bootstrap", "jQuery", "Firebase"],
+    images: [
+      "assets/images/memelash/memelash-1.png",
+      "assets/images/memelash/memelash-2.png",
+      "assets/images/memelash/memelash-3.png",
+      "assets/images/memelash/memelash-4.png",
+      "assets/images/memelash/memelash-5.png",
+      "assets/images/memelash/memelash-6.png"
+    ]
   },
   {
     //memelash
@@ -125,13 +161,30 @@ var disp = $(".displayContainer");
 var projDisp = $(".projectContainer");
 var imgDisp = $(".imageContainer");
 
-for (i in indexes) {
-  var iButton = $("<button>")
-    .text(indexes[i])
-    .addClass("navButton");
-  nav.append(iButton);
-  nav.attr("id", "open");
-}
+$(document).ready(function() {
+  for (i in indexes) {
+    var iButton = $("<button>")
+      .text(indexes[i])
+      .addClass("navButton");
+    nav.append(iButton);
+    nav.attr("id", "open");
+  }
+  var gameLink1 = $("<a>")
+    .attr("href", wordGuessGame)
+    .attr("id", "desktopOnly")
+    .attr("target", "_blank")
+    .text(`Word Guess Game!`);
+  nav.append(gameLink1);
+  var gameLink2 = $("<a>")
+    .attr("href", triviaGame)
+    .attr("id", "mobileOnly")
+    .attr("target", "_blank")
+    .text(`Trivia Game!`);
+  nav.append(gameLink2);
+  //   console.log($(".imageContainer").text().length);
+  //   console.log($(window).width()===600);
+});
+
 // nav bar
 nav.on("click", "button", function() {
   var button = $(this).text();
@@ -157,7 +210,7 @@ function displayProjects() {
   disp.removeAttr("id", "flyIn").empty();
   aboutDisp.removeAttr("id", "flyIn").empty();
   contactDisp.removeAttr("id", "flyIn").empty();
-  imgDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.css("height", "").empty();
   projDisp.removeAttr("id", "info").empty();
   disp.attr("id", "flyIn");
   for (p in projects) {
@@ -187,11 +240,14 @@ function displayAbout() {
   disp.removeAttr("id", "flyIn").empty();
   projDisp.removeAttr("id", "info").empty();
   contactDisp.removeAttr("id", "flyIn").empty();
-  imgDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.css("height", "").empty();
   aboutDisp.attr("id", "flyIn");
   var header = $("<h1>").text("About Me");
   aboutDisp.append(header);
-  var profDisp = $("<img>").attr("src", profilePic).attr("id", "profileImg").attr("alt", "me");
+  var profDisp = $("<img>")
+    .attr("src", profilePic)
+    .attr("id", "profileImg")
+    .attr("alt", "me");
   aboutDisp.append(profDisp);
 }
 
@@ -201,9 +257,10 @@ function displayContact() {
   disp.removeAttr("id", "flyIn").empty();
   projDisp.removeAttr("id", "info").empty();
   aboutDisp.removeAttr("id", "flyIn").empty();
-  imgDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.css("height", "").empty();
   contactDisp.attr("id", "flyIn");
   var header = $("<h1>").text("Contact Me");
+//   var
   contactDisp.append(header);
 }
 
@@ -212,6 +269,7 @@ disp.on("click", ".pButton", function() {
   $(window).scrollTop(0);
   disp.removeAttr("id", "flyIn").empty();
   imgDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.css("height", "400px");
   projDisp.attr("id", "info");
   var v = $(this).attr("data-value");
   var title = projects[v].title;

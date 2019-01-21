@@ -12,6 +12,14 @@ button {
   cursor: pointer;
   outline: none;
 }
+.pButton {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: absolute;
+  left: 48px;
+  bottom: 16px;
+}
 
 button:hover,
 .active {
@@ -23,7 +31,6 @@ button:hover,
   margin-right: 3%;
   float: left;
   width: 63%;
-  height: 400px;
   overflow: auto;
 }
 
@@ -58,6 +65,8 @@ button:hover,
   margin: 1%;
   padding: 10px;
   text-align: center;
+  border: solid 1px darkolivegreen;
+  position: relative;
 }
 
 .title {
@@ -75,6 +84,10 @@ button:hover,
 }
 #open {
   animation: flyIn 0.4s linear;
+}
+#navHead {
+  margin: 10px;
+  font-style: italic;
 }
 #img {
   animation: fadeIn ease 1s;
@@ -100,6 +113,28 @@ button:hover,
 #profileImg {
   float: left;
   width: 40%;
+}
+
+.pName {
+  margin-top: 8px;
+}
+
+#desktopOnly {
+  background-color: lightcoral;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  padding: 8px;
+  width: 124px;
+  margin-left: 8px;
+}
+
+#mobileOnly {
+  display: none;
+}
+
+#desktopOnly:hover {
+  background-color: indianred;
 }
 
 @keyframes flyIn {
@@ -129,6 +164,20 @@ button:hover,
     width: 80px;
     font-size: 14px;
   }
+  #mobileOnly {
+    display: inline;
+    background-color: lightcoral;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 17px;
+    /* width: 100px; */
+    margin-left: 8px;
+  }
+
+  #mobileOnly:hover {
+    background-color: indianred;
+  }
   .navContainer {
     padding-bottom: 10px;
   }
@@ -145,7 +194,13 @@ button:hover,
     height: 200px;
     margin-left: -5%;
     margin-bottom: 12px;
+    border: none;
+    position: static;
   }
+  .pButton {
+    position: static;
+  }
+
   #info {
     width: 96%;
   }
@@ -160,5 +215,9 @@ button:hover,
   #profileImg {
     clear: both;
     width: 94%;
+  }
+  #desktopOnly,
+  #desktopOnly:hover {
+    display: none;
   }
 }
