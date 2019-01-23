@@ -6,9 +6,9 @@ var triviaGame = "https://josefutleg.github.io/TriviaGame/";
 
 var wordGuessGame = "https://josefutleg.github.io/word-guess-game/";
 
-var gitIcon = "assets/images/github.JPG";
+var gitIcon = "assets/images/github.jpg";
 var linkedIcon = "assets/images/linkedin.png";
-var googleIcon = "assets/images/google.JPG";
+var googleIcon = "assets/images/google.jpg";
 var phoneIcon = "assets/images/phone.png";
 
 var bio = [
