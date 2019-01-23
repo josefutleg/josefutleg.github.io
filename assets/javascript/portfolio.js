@@ -1,4 +1,4 @@
-var indexes = ["About", "Contact", "Projects"];
+var indexes = ["ME", "WORK"];
 
 var profilePic = "assets/images/profilePic.JPG";
 
@@ -6,11 +6,16 @@ var triviaGame = "https://josefutleg.github.io/TriviaGame/";
 
 var wordGuessGame = "https://josefutleg.github.io/word-guess-game/";
 
+var gitIcon = "assets/images/github.JPG";
+var linkedIcon = "assets/images/linkedin.png";
+var googleIcon = "assets/images/google.JPG";
+var phoneIcon = "assets/images/phone.png";
+
 var bio = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue odio, venenatis eu gravida id, facilisis ac purus. Donec sed est in diam luctus malesuada. Cras vitae elit ac nulla semper molestie. Aliquam enim nulla, condimentum vel dolor eget, posuere molestie leo. Duis consequat porta bibendum. In vestibulum enim non urna ornare, ullamcorper commodo elit congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi purus sem, fringilla at mollis vitae, efficitur vitae mauris. Donec interdum elit non erat iaculis, quis interdum orci maximus. Phasellus finibus ac nisl at tincidunt. Curabitur vulputate gravida justo, et aliquam arcu vehicula vel.",
-    "Curabitur eleifend enim sed purus efficitur, vel suscipit odio sollicitudin. Fusce ultrices, massa a euismod aliquam, augue erat varius risus, sit amet auctor est sapien eget magna. Suspendisse vitae blandit tellus. Cras ligula justo, convallis vel ultricies quis, pellentesque eu sem. Curabitur faucibus nisl tortor, id iaculis metus pulvinar nec. Phasellus vel lectus nec tellus lobortis luctus. Curabitur magna sapien, interdum non interdum ac, faucibus nec augue. Vivamus ullamcorper arcu nec lacus hendrerit, eget lobortis purus rhoncus. Aliquam vehicula dui sed sagittis pulvinar. Proin imperdiet congue convallis. Nullam a diam in sapien finibus porttitor.",
-    "Nullam ultricies eu metus et finibus. Vivamus eget rutrum leo. Integer posuere ultricies fermentum. Aliquam at tortor lectus. Maecenas aliquet dui a vestibulum interdum. Sed facilisis mauris ac odio blandit, nec blandit magna eleifend. Morbi hendrerit scelerisque metus at ullamcorper. Vestibulum accumsan erat at enim faucibus condimentum. Sed id efficitur velit. Cras et eleifend lectus. Phasellus ultricies orci eget sapien tempus accumsan. Phasellus imperdiet risus ut tincidunt cursus. Nulla gravida at quam in elementum."
-]
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue odio, venenatis eu gravida id, facilisis ac purus. Donec sed est in diam luctus malesuada. Cras vitae elit ac nulla semper molestie. Aliquam enim nulla, condimentum vel dolor eget, posuere molestie leo. Duis consequat porta bibendum. In vestibulum enim non urna ornare, ullamcorper commodo elit congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi purus sem, fringilla at mollis vitae, efficitur vitae mauris. Donec interdum elit non erat iaculis, quis interdum orci maximus. Phasellus finibus ac nisl at tincidunt. Curabitur vulputate gravida justo, et aliquam arcu vehicula vel.",
+  "Curabitur eleifend enim sed purus efficitur, vel suscipit odio sollicitudin. Fusce ultrices, massa a euismod aliquam, augue erat varius risus, sit amet auctor est sapien eget magna. Suspendisse vitae blandit tellus. Cras ligula justo, convallis vel ultricies quis, pellentesque eu sem. Curabitur faucibus nisl tortor, id iaculis metus pulvinar nec. Phasellus vel lectus nec tellus lobortis luctus. Curabitur magna sapien, interdum non interdum ac, faucibus nec augue. Vivamus ullamcorper arcu nec lacus hendrerit, eget lobortis purus rhoncus. Aliquam vehicula dui sed sagittis pulvinar. Proin imperdiet congue convallis. Nullam a diam in sapien finibus porttitor.",
+  "Nullam ultricies eu metus et finibus. Vivamus eget rutrum leo. Integer posuere ultricies fermentum. Aliquam at tortor lectus. Maecenas aliquet dui a vestibulum interdum. Sed facilisis mauris ac odio blandit, nec blandit magna eleifend. Morbi hendrerit scelerisque metus at ullamcorper. Vestibulum accumsan erat at enim faucibus condimentum. Sed id efficitur velit. Cras et eleifend lectus. Phasellus ultricies orci eget sapien tempus accumsan. Phasellus imperdiet risus ut tincidunt cursus. Nulla gravida at quam in elementum."
+];
 
 var contactInfo = {
   email: "mailto:josefutleg@gmail.com",
@@ -75,7 +80,7 @@ var projects = [
   },
   {
     //scraper
-    title: "Mongo-Scraper",
+    title: "Scraper",
     tagline: "Webpage scraper",
     link: "https://github.com/josefutleg/mongo-scraper",
     description:
@@ -162,49 +167,100 @@ var projects = [
 ];
 var nav = $(".navContainer");
 var aboutDisp = $(".aboutContainer");
-var contactDisp = $(".contactContainer");
+// var contactDisp = $(".contactContainer");
 var disp = $(".displayContainer");
 var projDisp = $(".projectContainer");
 var imgDisp = $(".imageContainer");
 
 $(document).ready(function() {
+  var time = new Date().getHours();
+  console.log(time);
+  //   setTimeout(render, 3000);
+  render();
+
+  //   console.log($(".imageContainer").text().length);
+  //   console.log($(window).width()===600);
+});
+
+function render() {
+  var contactContainer = $("<div>").addClass("contactContainer");
+
   for (i in indexes) {
     var iButton = $("<button>")
       .text(indexes[i])
       .addClass("navButton");
     nav.append(iButton);
-    nav.attr("id", "open");
+    nav.attr("id", "flyIn");
   }
-  var gameLink1 = $("<a>")
-    .attr("href", wordGuessGame)
-    .attr("id", "desktopOnly")
+  var email = $("<a>")
+    .attr("href", contactInfo.email)
+    .addClass("link");
+  var emailP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "email");
+  var emailImg = $("<img>")
+    .attr("src", googleIcon)
+    .attr("id", "icon")
+    .attr("alt", "google");
+  var linkedin = $("<a>")
+    .attr("href", contactInfo.linkedin)
     .attr("target", "_blank")
-    .text(`Word Guess Game!`);
-  nav.append(gameLink1);
-  var gameLink2 = $("<a>")
-    .attr("href", triviaGame)
-    .attr("id", "mobileOnly")
+    .addClass("link");
+  var linkedP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "linkedIn");
+  var linkedImg = $("<img>")
+    .attr("src", linkedIcon)
+    .attr("id", "icon")
+    .attr("alt", "linkedin");
+  var github = $("<a>")
+    .attr("href", contactInfo.github)
     .attr("target", "_blank")
-    .text(`Trivia Game!`);
-  nav.append(gameLink2);
-  //   console.log($(".imageContainer").text().length);
-  //   console.log($(window).width()===600);
-});
+    .addClass("link");
+  var gitP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "gitHub");
+  var gitImg = $("<img>")
+    .attr("src", gitIcon)
+    .attr("id", "icon")
+    .attr("alt", "git");
+  var phone = $("<a>")
+    .attr("href", `tel:${contactInfo.phone}`)
+    .addClass("link");
+  var phoneP = $("<div>")
+    .addClass("contactP")
+    .attr("id", "phone");
+  var phoneImg = $("<img>")
+    .attr("src", phoneIcon)
+    .attr("id", "icon")
+    .attr("alt", "phone");
+  email.append(emailImg);
+  emailP.append(email);
+  linkedin.append(linkedImg);
+  linkedP.append(linkedin);
+  github.append(gitImg);
+  gitP.append(github);
+  phone.append(phoneImg);
+  phoneP.append(phone);
+  contactContainer
+    .append(phoneP)
+    .append(emailP)
+    .append(linkedP)
+    .append(gitP);
+  nav.append(contactContainer);
+  displayProjects();
+}
 
 // nav bar
 nav.on("click", "button", function() {
   var button = $(this).text();
-  if (button == "About") {
+  console.log($(this));
+  if (button == "ME") {
     $(".navButton").removeClass("active");
     $(this).addClass("active");
     displayAbout();
   }
-  if (button == "Contact") {
-    $(".navButton").removeClass("active");
-    $(this).addClass("active");
-    displayContact();
-  }
-  if (button == "Projects") {
+  if (button == "WORK") {
     $(".navButton").removeClass("active");
     $(this).addClass("active");
     displayProjects();
@@ -215,27 +271,47 @@ function displayProjects() {
   $(window).scrollTop(0);
   disp.removeAttr("id", "flyIn").empty();
   aboutDisp.removeAttr("id", "flyIn").empty();
-  contactDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "").empty();
   projDisp.removeAttr("id", "info").empty();
-  disp.attr("id", "flyIn");
+  //   disp.attr("id", "flyIn");
+  var gameContainer = $("<div>").addClass("gameContainer");
+  var gameH = $("<h4>")
+    .addClass("pName")
+    .text("Game");
+  var gameLink1 = $("<a>")
+    .attr("href", wordGuessGame)
+    .attr("id", "desktopOnly")
+    .attr("target", "_blank")
+    .text(`Word Guess Game!`);
+  gameContainer.append(gameLink1);
+  var gameLink2 = $("<a>")
+    .attr("href", triviaGame)
+    .attr("id", "mobileOnly")
+    .attr("target", "_blank")
+    .text(`Trivia Game!`);
+  gameContainer.append(gameLink2);
+  gameContainer.append(gameH);
+  gameContainer.attr("id", "flyIn");
+  disp.append(gameContainer);
   for (p in projects) {
     var response = projects[p];
-    // console.log(response);
-    var projectDiv = $("<div>").addClass("project");
-    var pButton = $("<button>")
-      .addClass("pButton")
-      .attr("data-value", p)
-      .text("view");
+    var projectDiv = $("<div>")
+      .addClass("project")
+      .attr("data-value", p);
+    // var pButton = $("<button>")
+    //   .addClass("pButton")
+    //   .attr("data-value", p)
+    //   .text("view");
     var projectName = $("<h4>")
       .addClass("pName")
       .text(response.title);
     var projectTagLine = $("<p>")
       .addClass("pTag")
       .text(response.tagline);
-    projectDiv.append(projectName);
     projectDiv.append(projectTagLine);
-    projectDiv.append(pButton);
+    projectDiv.append(projectName);
+    // projectDiv.append(pButton)
+    projectDiv.attr("id", "flyIn");
     disp.append(projectDiv);
   }
 }
@@ -245,74 +321,89 @@ function displayAbout() {
   aboutDisp.empty();
   disp.removeAttr("id", "flyIn").empty();
   projDisp.removeAttr("id", "info").empty();
-  contactDisp.removeAttr("id", "flyIn").empty();
+  //   contactDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "").empty();
   aboutDisp.attr("id", "flyIn");
-  var bioDiv = $("<div>").attr("id", "bioP")
+  var bioDiv = $("<div>").attr("id", "bioP");
   var profDisp = $("<img>")
     .attr("src", profilePic)
     .attr("id", "profileImg")
     .attr("alt", "me");
-    for (i in bio){
-        var bioDisp = $("<p>")
-        .text(bio[i]);
-        bioDiv.append(bioDisp);
-    }
+  for (i in bio) {
+    var bioDisp = $("<p>").text(bio[i]);
+    bioDiv.append(bioDisp);
+  }
 
   aboutDisp.append(profDisp).append(bioDiv);
 }
 
-function displayContact() {
-  $(window).scrollTop(0);
-  contactDisp.empty();
-  disp.removeAttr("id", "flyIn").empty();
-  projDisp.removeAttr("id", "info").empty();
-  aboutDisp.removeAttr("id", "flyIn").empty();
-  imgDisp.css("height", "").empty();
-  contactDisp.attr("id", "flyIn");
-  var email = $("<a>")
-    .attr("href", contactInfo.email)
-    .addClass("link")
-    .text("Gmail");
-  var emailP = $("<div>")
-    .addClass("contactP")
-    .attr("id", "email");
-  var linkedin = $("<a>")
-    .attr("href", contactInfo.linkedin)
-    .attr("target", "_blank")
-    .addClass("link")
-    .text("LinkedIn");
-  var linkedP = $("<div>")
-    .addClass("contactP")
-    .attr("id", "linkedIn");
-  var github = $("<a>")
-    .attr("href", contactInfo.github)
-    .attr("target", "_blank")
-    .addClass("link")
-    .text("GitHub");
-  var gitP = $("<div>")
-    .addClass("contactP")
-    .attr("id", "gitHub");
-  var phone = $("<a>")
-    .attr("href", `tel:${contactInfo.phone}`)
-    .addClass("link")
-    .text("Phone");
-  var phoneP = $("<div>")
-    .addClass("contactP")
-    .attr("id", "phone");
-  emailP.append(email);
-  linkedP.append(linkedin);
-  gitP.append(github);
-  phoneP.append(phone);
-  contactDisp
-    .append(phoneP)
-    .append(emailP)
-    .append(linkedP)
-    .append(gitP);
-}
+// function displayContact() {
+//   $(window).scrollTop(0);
+//   contactDisp.empty();
+//   disp.removeAttr("id", "flyIn").empty();
+//   projDisp.removeAttr("id", "info").empty();
+//   aboutDisp.removeAttr("id", "flyIn").empty();
+//   imgDisp.css("height", "").empty();
+//   contactDisp.attr("id", "flyIn");
+//   var email = $("<a>")
+//     .attr("href", contactInfo.email)
+//     .addClass("link");
+//   var emailP = $("<div>")
+//     .addClass("contactP")
+//     .attr("id", "email");
+//   var emailImg = $("<img>")
+//     .attr("src", googleIcon)
+//     .attr("id", "icon")
+//     .attr("alt", "google");
+//   var linkedin = $("<a>")
+//     .attr("href", contactInfo.linkedin)
+//     .attr("target", "_blank")
+//     .addClass("link");
+//   var linkedP = $("<div>")
+//     .addClass("contactP")
+//     .attr("id", "linkedIn");
+//   var linkedImg = $("<img>")
+//     .attr("src", linkedIcon)
+//     .attr("id", "icon")
+//     .attr("alt", "linkedin");
+//   var github = $("<a>")
+//     .attr("href", contactInfo.github)
+//     .attr("target", "_blank")
+//     .addClass("link");
+//   var gitP = $("<div>")
+//     .addClass("contactP")
+//     .attr("id", "gitHub");
+//   var gitImg = $("<img>")
+//     .attr("src", gitIcon)
+//     .attr("id", "icon")
+//     .attr("alt", "git");
+//   var phone = $("<a>")
+//     .attr("href", `tel:${contactInfo.phone}`)
+//     .addClass("link")
+//   var phoneP = $("<div>")
+//     .addClass("contactP")
+//     .attr("id", "phone");
+//     var phoneImg = $("<img>")
+//     .attr("src", phoneIcon)
+//     .attr("id", "icon")
+//     .attr("alt", "phone");
+//   email.append(emailImg);
+//   emailP.append(email);
+//   linkedin.append(linkedImg);
+//   linkedP.append(linkedin);
+//   github.append(gitImg);
+//   gitP.append(github);
+//   phone.append(phoneImg);
+//   phoneP.append(phone);
+//   contactDisp
+//     .append(phoneP)
+//     .append(emailP)
+//     .append(linkedP)
+//     .append(gitP);
+// }
 
 //view button function
-disp.on("click", ".pButton", function() {
+disp.on("click", ".project", function() {
   $(window).scrollTop(0);
   $(".navButton").removeClass("active");
   disp.removeAttr("id", "flyIn").empty();
