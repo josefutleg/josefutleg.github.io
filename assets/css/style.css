@@ -30,6 +30,10 @@ button:hover,
   font-weight: bold;
 }
 
+.aboutContainer {
+  text-align: justify;
+}
+
 .imageContainer {
   margin-top: 20px;
   /* width: 400px; */
@@ -55,12 +59,28 @@ button:hover,
 .gameContainer:hover {
   color: white;
 }
+.greetingContainer {
+  font-weight: bold;
+  text-align: center;
+  left: 0;
+  top: 200px;
+  width: 100%;
+  position: relative;
+  font-size: 40px;
+  -webkit-animation: fadeinout 4s linear 1 forwards;
+  animation: fadeinout 3s linear 1 forwards;
+}
+
+#hidden {
+  display: none;
+}
 
 .displayContainer {
   left: 40px;
   width: 200px;
   position: fixed;
   margin-top: 140px;
+  overflow: auto;
 }
 .project:hover,
 .active {
@@ -114,7 +134,7 @@ button:hover,
 }
 
 .title {
-text-align: center
+  text-align: center;
 }
 
 .contactP {
@@ -132,6 +152,7 @@ text-align: center
 .desc,
 #item {
   font-size: 12px;
+  text-align: justify;
 }
 
 .pTag {
@@ -141,7 +162,7 @@ text-align: center
 }
 
 #flyIn {
-  animation: fadeIn ease 1s;
+  animation: fadeIn ease 2s;
 }
 
 #bioP {
@@ -249,21 +270,36 @@ text-align: center
   }
 }
 
-@keyframes flyIn2 {
-  0% {
-    transform: translateY(%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -320,7 +356,7 @@ text-align: center
   .displayContainer {
     left: 0;
     width: 100%;
-    position: fixed;
+    height: 500px;
     margin-top: 140px;
   }
   .gameContainer {
