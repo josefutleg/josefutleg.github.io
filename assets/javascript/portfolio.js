@@ -167,7 +167,6 @@ var projects = [
 ];
 var nav = $(".navContainer");
 var aboutDisp = $(".aboutContainer");
-// var contactDisp = $(".contactContainer");
 var disp = $(".displayContainer");
 var projDisp = $(".projectContainer");
 var imgDisp = $(".imageContainer");
@@ -175,18 +174,15 @@ var greetDisp = $(".greetingContainer");
 
 $(document).ready(function() {
   var time = new Date().getHours();
-//   console.log(time);
   if (time >= 0  && time < 12){
-      console.log("good morning");
       greetDisp.append("good morning")
   } else if (time >= 12 && time < 17){
-      console.log("good afternoon")
-  } else if (time >= 17 && time < 24){
-      console.log("good evening")
+      greetDisp.append("good afternoon")
+    } else if (time >= 17 && time < 24){
+      greetDisp.append("good evening")
   }
     setTimeout(render, 3000);
 //   render();
-
   //   console.log($(".imageContainer").text().length);
   //   console.log($(window).width()===600);
 });
