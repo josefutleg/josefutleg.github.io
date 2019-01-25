@@ -11,10 +11,13 @@ var linkedIcon = "assets/images/linkedin.png";
 var googleIcon = "assets/images/google.jpg";
 var phoneIcon = "assets/images/phone.png";
 
+var intro = $("<p>").attr("id","intro").text("Hi! Thank you for stopping by! Please feel free to check out my projects and if you want to kill some time, click on Game and play a word guess game if you are on a desktop or a trivia game if you are viewing this page from your phone!");
+
 var bio = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce augue odio, venenatis eu gravida id, facilisis ac purus. Donec sed est in diam luctus malesuada. Cras vitae elit ac nulla semper molestie. Aliquam enim nulla, condimentum vel dolor eget, posuere molestie leo. Duis consequat porta bibendum. In vestibulum enim non urna ornare, ullamcorper commodo elit congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi purus sem, fringilla at mollis vitae, efficitur vitae mauris. Donec interdum elit non erat iaculis, quis interdum orci maximus. Phasellus finibus ac nisl at tincidunt. Curabitur vulputate gravida justo, et aliquam arcu vehicula vel.",
-  "Curabitur eleifend enim sed purus efficitur, vel suscipit odio sollicitudin. Fusce ultrices, massa a euismod aliquam, augue erat varius risus, sit amet auctor est sapien eget magna. Suspendisse vitae blandit tellus. Cras ligula justo, convallis vel ultricies quis, pellentesque eu sem. Curabitur faucibus nisl tortor, id iaculis metus pulvinar nec. Phasellus vel lectus nec tellus lobortis luctus. Curabitur magna sapien, interdum non interdum ac, faucibus nec augue. Vivamus ullamcorper arcu nec lacus hendrerit, eget lobortis purus rhoncus. Aliquam vehicula dui sed sagittis pulvinar. Proin imperdiet congue convallis. Nullam a diam in sapien finibus porttitor.",
-  "Nullam ultricies eu metus et finibus. Vivamus eget rutrum leo. Integer posuere ultricies fermentum. Aliquam at tortor lectus. Maecenas aliquet dui a vestibulum interdum. Sed facilisis mauris ac odio blandit, nec blandit magna eleifend. Morbi hendrerit scelerisque metus at ullamcorper. Vestibulum accumsan erat at enim faucibus condimentum. Sed id efficitur velit. Cras et eleifend lectus. Phasellus ultricies orci eget sapien tempus accumsan. Phasellus imperdiet risus ut tincidunt cursus. Nulla gravida at quam in elementum."
+  "Based in the Bay Area, I am currently a Designer / Job Captain at an architecture firm in San Francisco. I recently completed the Coding Bootcamp course at UC Berkley Extension and am very excited in starting a new path as a Full-Stack Web Developer!",
+  "Coming from an Architectural background; design is my passion and similarly when it comes to technology, I appreciate the time and effort put into designing an application. I take pride and also find joy in solving complex problems. If I do not know the answer, I am always up to learn something new! Whether it is designing a floor plan or the structure of a database and how the front-end responds to it, I am continuously striving to create efficient, unique, and aesthetically pleasing products.",
+  "In my last five years in the Architecture field, I have learned that communication is key and I welcome collaboration with open arms. As they say, Rome wasn’t built in a day; nor was it built by one person so I am always excited to work with my peers on projects to see new solutions and learn new techniques to get to the goal.",
+  "When I am not..."
 ];
 
 var contactInfo = {
@@ -55,7 +58,7 @@ var projects = [
   },
   {
     //liri
-    title: "LIRI",
+    title: "liri",
     tagline: "Node based assistant",
     link: "https://github.com/josefutleg/liri-node-app",
     description:
@@ -80,7 +83,7 @@ var projects = [
   },
   {
     //scraper
-    title: "Scraper",
+    title: "scraper",
     tagline: "Webpage scraper",
     link: "https://github.com/josefutleg/mongo-scraper",
     description:
@@ -105,7 +108,7 @@ var projects = [
   },
   {
     //bamazon
-    title: "Bamazon",
+    title: "bamazon",
     tagline: "Node based shopping application",
     link: "https://github.com/josefutleg/hw-8-bamazon",
     description:
@@ -143,7 +146,7 @@ var projects = [
   },
   {
     //memelash
-    title: "GIF-Tastic",
+    title: "gif-tastic",
     tagline: "GIF search application",
     link: "https://github.com/josefutleg/GifTastic",
     description:
@@ -175,11 +178,11 @@ var greetDisp = $(".greetingContainer");
 $(document).ready(function() {
   var time = new Date().getHours();
   if (time >= 0  && time < 12){
-      greetDisp.append("good morning")
+      greetDisp.append("good morning!")
   } else if (time >= 12 && time < 17){
-      greetDisp.append("good afternoon")
+      greetDisp.append("good afternoon!")
     } else if (time >= 17 && time < 24){
-      greetDisp.append("good evening")
+      greetDisp.append("good evening!")
   }
     setTimeout(render, 3000);
 //   render();
@@ -254,6 +257,8 @@ function render() {
     .append(gitP);
   nav.append(contactContainer);
   displayProjects();
+  aboutDisp.attr("id", "flyIn");
+  aboutDisp.append(intro);
 }
 
 // nav bar
@@ -273,6 +278,7 @@ nav.on("click", "button", function() {
 
 function displayProjects() {
   $(window).scrollTop(0);
+  greetDisp.empty();
   disp.removeAttr("id", "flyIn").empty();
   aboutDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "").empty();
@@ -281,7 +287,7 @@ function displayProjects() {
   var gameContainer = $("<div>").addClass("gameContainer");
   var gameH = $("<h4>")
     .addClass("pName")
-    .text("Game");
+    .text("game");
   var gameLink1 = $("<a>")
     .attr("href", wordGuessGame)
     .attr("id", "desktopOnly")
@@ -302,10 +308,6 @@ function displayProjects() {
     var projectDiv = $("<div>")
       .addClass("project")
       .attr("data-value", p);
-    // var pButton = $("<button>")
-    //   .addClass("pButton")
-    //   .attr("data-value", p)
-    //   .text("view");
     var projectName = $("<h4>")
       .addClass("pName")
       .text(response.title);
@@ -314,7 +316,6 @@ function displayProjects() {
       .text(response.tagline);
     projectDiv.append(projectTagLine);
     projectDiv.append(projectName);
-    // projectDiv.append(pButton)
     projectDiv.attr("id", "flyIn");
     disp.append(projectDiv);
   }
@@ -325,7 +326,6 @@ function displayAbout() {
   aboutDisp.empty();
   disp.removeAttr("id", "flyIn").empty();
   projDisp.removeAttr("id", "info").empty();
-  //   contactDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "").empty();
   aboutDisp.attr("id", "flyIn");
   var bioDiv = $("<div>").attr("id", "bioP");
@@ -334,7 +334,7 @@ function displayAbout() {
     .attr("id", "profileImg")
     .attr("alt", "me");
   for (i in bio) {
-    var bioDisp = $("<p>").text(bio[i]);
+    var bioDisp = $("<p>").attr("style", "font-style:italic;").text(bio[i]);
     bioDiv.append(bioDisp);
   }
 
@@ -345,6 +345,7 @@ function displayAbout() {
 disp.on("click", ".project", function() {
   $(window).scrollTop(0);
   $(".navButton").removeClass("active");
+  aboutDisp.empty();  
   disp.removeAttr("id", "flyIn").empty();
   imgDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "400px");
