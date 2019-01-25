@@ -11,7 +11,11 @@ var linkedIcon = "assets/images/linkedin.png";
 var googleIcon = "assets/images/google.jpg";
 var phoneIcon = "assets/images/phone.png";
 
-var intro = $("<p>").attr("id","intro").text("Hi! Thank you for stopping by! Please feel free to check out my projects and if you want to kill some time, click on Game and play a word guess game if you are on a desktop or a trivia game if you are viewing this page from your phone!");
+var intro = $("<p>")
+  .attr("id", "intro")
+  .text(
+    "Hi! Thank you for stopping by! Please feel free to check out my projects and if you want to kill some time, click on Game and play a word guess game if you are on a desktop or a trivia game if you are viewing this page from your phone!"
+  );
 
 var bio = [
   "Based in the Bay Area, I am currently a Designer / Job Captain at an architecture firm in San Francisco. I recently completed the Coding Bootcamp course at UC Berkley Extension and am very excited in starting a new path as a Full-Stack Web Developer!",
@@ -177,15 +181,15 @@ var greetDisp = $(".greetingContainer");
 
 $(document).ready(function() {
   var time = new Date().getHours();
-  if (time >= 0  && time < 12){
-      greetDisp.append("good morning!")
-  } else if (time >= 12 && time < 17){
-      greetDisp.append("good afternoon!")
-    } else if (time >= 17 && time < 24){
-      greetDisp.append("good evening!")
+  if (time >= 0 && time < 12) {
+    greetDisp.append("good morning!");
+  } else if (time >= 12 && time < 17) {
+    greetDisp.append("good afternoon!");
+  } else if (time >= 17 && time < 24) {
+    greetDisp.append("good evening!");
   }
-    setTimeout(render, 3000);
-//   render();
+  setTimeout(render, 3000);
+  //   render();
   //   console.log($(".imageContainer").text().length);
   //   console.log($(window).width()===600);
 });
@@ -334,7 +338,9 @@ function displayAbout() {
     .attr("id", "profileImg")
     .attr("alt", "me");
   for (i in bio) {
-    var bioDisp = $("<p>").attr("style", "font-style:italic;").text(bio[i]);
+    var bioDisp = $("<p>")
+      .attr("style", "font-style:italic;")
+      .text(bio[i]);
     bioDiv.append(bioDisp);
   }
 
@@ -344,9 +350,17 @@ function displayAbout() {
 //view button function
 disp.on("click", ".project", function() {
   $(window).scrollTop(0);
+  projDisp.removeAttr("id", "info");
+  var windowSize = $($(window).width());
+  console.log(windowSize[0]);
+  if (windowSize[0] <= 650) {
+    console.log("true");
+    disp.removeAttr("id", "flyIn").empty();
+  }
   $(".navButton").removeClass("active");
-  aboutDisp.empty();  
-  disp.removeAttr("id", "flyIn").empty();
+  aboutDisp.empty();
+  projDisp.empty();
+  //   disp.removeAttr("id", "flyIn").empty();
   imgDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "400px");
   projDisp.attr("id", "info");
