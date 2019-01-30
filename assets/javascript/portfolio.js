@@ -24,8 +24,8 @@ var hayesLink = $("<a>").attr("href", "#").text("Hayes");
 var bio = [
   "Hello! My name is Josef! I like video games, music (check out my dig app!), and I have a French Bulldog named Hayes!",
   "Based in the Bay Area, I am currently a Designer / Job Captain at an architecture firm in San Francisco. I recently completed the Coding Bootcamp course at UC Berkeley Extension and am very excited in starting a new path as a Full-Stack Web Developer!",
-  "Coming from an Architectural background; design is my passion and similarly when it comes to technology, I appreciate the time and effort put into designing an application. I take pride and also find joy in solving complex problems. If I do not know the answer, I am always up to learn something new! Whether it is designing a floor plan or the structure of a database and how the front-end responds to it, I am continuously striving to create efficient, unique, and aesthetically pleasing products.",
-  "In my last five years in the Architecture field, I have learned that communication is key and I welcome collaboration with open arms. As they say, Rome was not built in a day; nor was it built by one person so I am always excited to work with my peers on projects to see new solutions and learn new techniques to get to the goal."
+  "Coming from an Architectural background, design is my passion and similarly when it comes to technology, I appreciate the time and effort put into designing an application. I take pride and also find joy in solving complex problems. If I do not know the answer, I am always up to learn something new! Whether it is designing a floor plan or the structure of a database and how the front-end responds to it, I am continuously striving to create efficient, unique, and aesthetically pleasing products.",
+  "In my last five years in the Architecture field, I have learned that communication is key and I welcome collaboration with open arms. As they say, Rome was not built in a day, nor was it built by one person so I am always excited to work with my peers on projects to see new solutions and learn new techniques to get to the goal."
 ];
 
 var contactInfo = {
