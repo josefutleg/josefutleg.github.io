@@ -6,23 +6,18 @@ var triviaGame = "https://josefutleg.github.io/TriviaGame/";
 
 var wordGuessGame = "https://josefutleg.github.io/word-guess-game/";
 
-var gitIcon = "assets/images/github.jpg";
-var linkedIcon = "assets/images/linkedin.png";
-var googleIcon = "assets/images/google.jpg";
-var phoneIcon = "assets/images/phone.png";
-
 var intro = $("<p>")
   .attr("id", "intro")
   .text(
     "Hi! Thank you for stopping by! Please feel free to check out my projects and if you want to kill some time, click on Game to play a word guess game if you are on a desktop or a trivia game if you are viewing this page from your phone!"
   );
 
-var hayes = $("<img>").attr("id","hayes").attr("src","assets/images/hayes.jpg").attr("alt", "hayes");
-var hayesLink = $("<a>").attr("href", "#").text("Hayes");
+// var hayes = $("<img>").attr("id","hayes").attr("src","assets/images/hayes.jpg").attr("alt", "hayes");
+// var hayesLink = $("<a>").attr("href", "#").text("Hayes");
 
 
 var bio = [
-  "Hello! My name is Josef! I like video games, music (check out my dig app!), and I have a French Bulldog named Hayes!",
+  "Hello, my name is Josef! I like video games, music (check out my dig app!), and I have a French Bulldog named Hayes!",
   "Based in the Bay Area, I am currently a Designer / Job Captain at an architecture firm in San Francisco. I recently completed the Coding Bootcamp course at UC Berkeley Extension and am very excited in starting a new path as a Full-Stack Web Developer!",
   "Coming from an Architectural background, design is my passion and similarly when it comes to technology, I appreciate the time and effort put into designing an application. I take pride and also find joy in solving complex problems. If I do not know the answer, I am always up to learn something new! Whether it is designing a floor plan or the structure of a database and how the front-end responds to it, I am continuously striving to create efficient, unique, and aesthetically pleasing products.",
   "In my last five years in the Architecture field, I have learned that communication is key and I welcome collaboration with open arms. As they say, Rome was not built in a day, nor was it built by one person so I am always excited to work with my peers on projects to see new solutions and learn new techniques to get to the goal."
@@ -42,7 +37,7 @@ var projects = [
     tagline: "Spotify playlist generator",
     link: "https://github.com/josefutleg/dig-app-new",
     description:
-      "Playlist building application using Spotify's API. Users will sign into their Spotify accounts to use search and create functions. Once signed in, users can search for any song they like. If provided by Spotify, users can also play preview snippets of tracks. Once a song is chosen, dig will identify the song's artist and then find related artists and their albums. Dig will then randomly select one or two albums to pull one or two tracks from them to generate a playlist. Once all related artists' albums have been browsed, dig will produce the playlist and append to page for instant listening. Since users are logged into their own Spotify accounts, the newly created playlists can be found in their Spotify applications for later listening. To further explore the depth of Spotify's API, dig also sorts each playlist based on a song's key and tempo. With key as the primary sorting factor, tempo will progressively increase within each key range until the key changes. A database using MongoDB is implemented for archiving all playlists created with the application so a user can browse/preview/add previously created playlists. Your own personal DJ!",
+      "Web application that uses Spotify's API. User signs into their own Spotify account to use Dig to search for a song or artist they like. Once a song or artist is chosen, Dig will use Spotify's API documentation to find the chosen artist's related artists. Dig will then start browsing the related artists album and pull one or two random songs to add to the new playlist. As the songs are being added, they are also being sorted based on the song's key and tempo. As the key progresses from 1 to 9, the tempo will increase and restart at the lowest as the key changes. The playlist will embed to Dig's page for the user to listen to. Every playlist the user creates will save to their Spotify accounts. All of the playlists Dig creates will also save to Dig also uses MongoDB as a database to store all of the playlists created for other users to browse and add to their own accounts. Your own personal DJ!",
     tools: [
       "Node.js",
       "React",
@@ -120,7 +115,7 @@ var projects = [
     tagline: "Node based shopping application",
     link: "https://github.com/josefutleg/hw-8-bamazon",
     description:
-      "Node.js based application that allows user to shop for products within Bamazon's inventory. Using MySQL to store inventory and npm package Inquirer, Bamazon will display all inventory, drink type, drink name, and price. Once user selects drink and quantity, Bamazon will check stock to make sure stock meets user's quantity request. If there is sufficient stock, transaction will complete and update database's inventory, otherwise Bamazon will notify user there is insufficient is and restart the inquiries.",
+      "Node.js based application that allows user to shop for products within Bamazon's inventory. Using MySQL to store inventory and npm package Inquirer, Bamazon will display all inventory, drink type, drink name, and price. Once user selects drink and quantity, Bamazon will check stock to make sure stock meets user's quantity request. If there is sufficient stock, transaction will complete and update database's inventory, otherwise Bamazon will notify user there is insufficient stock and restart the inquiry cycle.",
     tools: [
       "MySQL",
       "Node.js",
@@ -208,55 +203,40 @@ function render() {
     nav.append(iButton);
     nav.attr("id", "flyIn");
   }
+
+//   <i class="fab fa-linkedin"></i>
+//   <i class="fas fa-phone-square"></i>
+//   <i class="fas fa-envelope"></i>
+//   <i class="fab fa-github-square"></i>
   var email = $("<a>")
     .attr("href", contactInfo.email)
-    .addClass("link");
+    .addClass("fas fa-envelope link");
   var emailP = $("<div>")
     .addClass("contactP")
     .attr("id", "email");
-  var emailImg = $("<img>")
-    .attr("src", googleIcon)
-    .attr("id", "icon")
-    .attr("alt", "google");
   var linkedin = $("<a>")
     .attr("href", contactInfo.linkedin)
     .attr("target", "_blank")
-    .addClass("link");
+    .addClass("fab fa-linkedin link");
   var linkedP = $("<div>")
     .addClass("contactP")
     .attr("id", "linkedIn");
-  var linkedImg = $("<img>")
-    .attr("src", linkedIcon)
-    .attr("id", "icon")
-    .attr("alt", "linkedin");
   var github = $("<a>")
     .attr("href", contactInfo.github)
     .attr("target", "_blank")
-    .addClass("link");
+    .addClass("fab fa-github-square link");
   var gitP = $("<div>")
     .addClass("contactP")
     .attr("id", "gitHub");
-  var gitImg = $("<img>")
-    .attr("src", gitIcon)
-    .attr("id", "icon")
-    .attr("alt", "git");
   var phone = $("<a>")
     .attr("href", `tel:${contactInfo.phone}`)
-    .addClass("link");
+    .addClass("fas fa-phone-square link");
   var phoneP = $("<div>")
     .addClass("contactP")
     .attr("id", "phone");
-  var phoneImg = $("<img>")
-    .attr("src", phoneIcon)
-    .attr("id", "icon")
-    .attr("alt", "phone");
-  email.append(emailImg);
   emailP.append(email);
-  linkedin.append(linkedImg);
   linkedP.append(linkedin);
-  github.append(gitImg);
   gitP.append(github);
-  phone.append(phoneImg);
   phoneP.append(phone);
   contactContainer
     .append(phoneP)
@@ -387,7 +367,7 @@ disp.on("click", ".project", function() {
     .text(description);
   var toolsH = $("<h4>")
     .addClass("listH")
-    .text("Tools");
+    .text("Technologies");
   var toolsList = $("<ul>").addClass("list");
   projDisp
     .append(titleH)
