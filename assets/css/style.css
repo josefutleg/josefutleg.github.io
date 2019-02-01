@@ -95,7 +95,7 @@ button:hover,
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  text-align: -webkit-center;
+  text-align: center;
 }
 
 .mainContainer {
@@ -345,6 +345,7 @@ button:hover,
   .navButton {
     margin-top: 12px;
     position: static;
+    display: inline-block;
   }
   .imageContainer {
     clear: both;
