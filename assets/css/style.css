@@ -140,7 +140,7 @@ button:hover,
 
 .contactP {
   float: left;
-  margin-left: 12px;
+  margin-left: 14px;
   cursor: pointer;
 }
 .contactP:hover {
@@ -204,12 +204,10 @@ button:hover,
 .link {
   text-decoration: none;
   color: black;
-  font-size: 30px;
-  /* display: inline-block; */
+  font-size: 26px;
 }
 
 #link:hover {
-  /* background-color: black; */
   opacity: 0.5;
 }
 
