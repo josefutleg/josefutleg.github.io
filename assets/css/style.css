@@ -345,6 +345,7 @@ button:hover,
     margin-top: 12px;
     display: inline-block;
     text-align: center;
+    padding: 0px;
   }
   .imageContainer {
     clear: both;
