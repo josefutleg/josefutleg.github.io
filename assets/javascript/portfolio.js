@@ -210,7 +210,7 @@ function render() {
 //   <i class="fab fa-github-square"></i>
   var email = $("<a>")
     .attr("href", contactInfo.email)
-    .addClass("fas fa-envelope link");
+    .addClass("fas fa-envelope-square link");
   var emailP = $("<div>")
     .addClass("contactP")
     .attr("id", "email");
