@@ -344,8 +344,8 @@ button:hover,
   }
   .navButton {
     margin-top: 12px;
-    position: static;
     display: inline-block;
+    text-align: center;
   }
   .imageContainer {
     clear: both;
