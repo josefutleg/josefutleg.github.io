@@ -25,7 +25,7 @@ var bio = [
 
 var contactInfo = {
   email: "mailto:josefutleg@gmail.com",
-  linkedin: "https://www.linkedin.com/in/josef-utleg/",
+  linkedin: "https://www.linkedin.com/in/josefutleg/",
   github: "https://github.com/josefutleg",
   phone: "14153093776"
 };
