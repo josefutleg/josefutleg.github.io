@@ -12,20 +12,13 @@ var intro = $("<p>")
     "Hi! Thank you for stopping by! Please feel free to check out my projects and if you want to kill some time, click on Game to play a word guess game if you are on a desktop or a trivia game if you are viewing this page from your phone!"
   );
 
-// var hayes = $("<img>").attr("id","hayes").attr("src","assets/images/hayes.jpg").attr("alt", "hayes");
-// var hayesLink = $("<a>").attr("href", "#").text("Hayes");
-
-
 var bio = [
-  "Hello, my name is Josef! I like video games, music (check out my dig app!), and I have a French Bulldog named Hayes!",
-  "Based in the Bay Area, I am currently a Designer / Job Captain at an architecture firm in San Francisco. I recently completed the Coding Bootcamp course at UC Berkeley Extension and am very excited in starting a new path as a Full-Stack Web Developer!",
-  "Coming from an architectural background, design is my passion and similarly when it comes to technology, I appreciate the time and effort put into designing an application. I take pride and also find joy in solving complex problems. If I do not know the answer, I am always up to learn something new! Whether it is designing a floor plan or the structure of a database and how the front-end responds to it, I am continuously striving to create efficient, unique, and aesthetically pleasing products.",
-  "In my last five years in the architecture field, I have learned that communication is key and I welcome collaboration with open arms. As they say, Rome was not built in a day, nor was it built by one person so I am always excited to work with my peers on projects to see new solutions and learn new techniques to get to the goal."
+  "Hi! My name is Josef Utleg and I am a Full-Stack Web Developer constantly striving to write clean and efficient code."
 ];
 
 var contactInfo = {
   email: "mailto:josefutleg@gmail.com",
-  linkedin: "https://www.linkedin.com/in/josef-utleg/",
+  linkedin: "https://www.linkedin.com/in/josefutleg/",
   github: "https://github.com/josefutleg",
   phone: "14153093776"
 };
@@ -57,7 +50,8 @@ var projects = [
       "assets/images/dig/dig-05.png",
       "assets/images/dig/dig-06.png",
       "assets/images/dig/dig-07.png"
-    ]
+    ],
+    thumb: "assets/images/dig/dig-thumb.png"
   },
   {
     //liri
@@ -82,7 +76,8 @@ var projects = [
       "assets/images/liri/liri-03.png",
       "assets/images/liri/liri-04.png",
       "assets/images/liri/liri-05.png"
-    ]
+    ],
+    thumb: "assets/images/liri/liri-thumb.png"
   },
   {
     //scraper
@@ -107,7 +102,8 @@ var projects = [
       "assets/images/scraper/scraper-5.png",
       "assets/images/scraper/scraper-6.png",
       "assets/images/scraper/scraper-7.png"
-    ]
+    ],
+    thumb: "assets/images/scraper/scraper-thumb.png"
   },
   {
     //bamazon
@@ -128,12 +124,13 @@ var projects = [
       "assets/images/bamazon/03-bamazon-Node Sample.png",
       "assets/images/bamazon/04-bamazon_db-After Purchase.png",
       "assets/images/bamazon/05-bamazon-Insufficient Quantity.png"
-    ]
+    ],
+    thumb: "assets/images/bamazon/bamazon-thumb.png"
   },
   {
     //memelash
     title: "memelash",
-    tagline: "Multiplayer meme-captioning game",
+    tagline: "Multiplayer meme-captioning game (work in progress)",
     link: "https://github.com/josefutleg/memelash-firebase",
     description:
       "Meme-captioning multiplayer game that is played on separate screens using Firebase to handle the real-time aspect. Project is not complete - Kept running into Firebase issues that would de-sync game info/timer across players' screens.",
@@ -145,7 +142,8 @@ var projects = [
       "assets/images/memelash/memelash-4.png",
       "assets/images/memelash/memelash-5.png",
       "assets/images/memelash/memelash-6.png"
-    ]
+    ],
+    thumb: "assets/images/memelash/memelash-thumb.png"
   },
   {
     //memelash
@@ -168,7 +166,26 @@ var projects = [
       "assets/images/gif-tastic/GifTastic_3.png",
       "assets/images/gif-tastic/GifTastic_4.png",
       "assets/images/gif-tastic/GifTastic_5.png"
-    ]
+    ],
+    thumb: "assets/images/gif-tastic/giftastic-thumb.png"
+  }
+];
+
+var games = [
+  {
+    title: "word guess game",
+    link: "https://github.com/josefutleg/word-guess-game",
+    play: "https://josefutleg.github.io/word-guess-game/",
+    description:
+      "Hangman style word guess game. Guess four of Frank Ocean's songs in a row for a surprise! Click 'play' to test your Frank knowledge!",
+    thumb: "assets/images/games/games-thumb.png"
+  },
+  {
+    title: "trivia game",
+    link: "https://github.com/josefutleg/TriviaGame",
+    play: "https://josefutleg.github.io/TriviaGame/",
+    description:
+      "Test your knowledge of San Francisco's history with this triva game!"
   }
 ];
 var nav = $(".navContainer");
@@ -240,9 +257,10 @@ function render() {
     .append(linkedP)
     .append(gitP);
   nav.append(contactContainer);
-  displayProjects();
+  // displayProjects();
+  displayAbout();
   aboutDisp.attr("id", "flyIn");
-  aboutDisp.append(intro);
+  // aboutDisp.append(intro);
 }
 
 // nav bar
@@ -267,28 +285,28 @@ function displayProjects() {
   aboutDisp.removeAttr("id", "flyIn").empty();
   imgDisp.css("height", "").empty();
   projDisp.removeAttr("id", "info").empty();
-  //   disp.attr("id", "flyIn");
-  var gameContainer = $("<div>").addClass("gameContainer");
-  var gameH = $("<h4>")
+  var gamesDiv = $("<div>")
+    .addClass("games")
+    .attr("data-value", "g");
+  var gamesName = $("<h4>")
     .addClass("pName")
-    .text("game");
-  var gameLink1 = $("<a>")
-    .attr("href", wordGuessGame)
-    .attr("id", "desktopOnly")
-    .attr("target", "_blank")
-    .text(`Word Guess Game! (Desktop Only)`);
-  gameContainer.append(gameLink1);
-  var gameLink2 = $("<a>")
-    .attr("href", triviaGame)
-    .attr("id", "mobileOnly")
-    .attr("target", "_blank")
-    .text(`Trivia Game!`);
-  gameContainer.append(gameLink2);
-  gameContainer.append(gameH);
-  gameContainer.attr("id", "flyIn");
-  disp.append(gameContainer);
+    .text("games");
+  var gamesTagLine = $("<p>")
+    .addClass("pTag")
+    .text("games games games!");
+  var gamesThumb = $("<img>")
+    .attr("src", games[0].thumb)
+    .attr("alt", "games")
+    .addClass("img-fluid");
+  gamesDiv.prepend(gamesThumb);
+  gamesDiv.append(gamesName);
+  gamesDiv.append(gamesTagLine);
+  gamesDiv.attr("id", "flyIn");
+  disp.append(gamesDiv);
+
   for (p in projects) {
     var response = projects[p];
+    var thumbnail = projects[p].thumb;
     var projectDiv = $("<div>")
       .addClass("project")
       .attr("data-value", p);
@@ -298,8 +316,13 @@ function displayProjects() {
     var projectTagLine = $("<p>")
       .addClass("pTag")
       .text(response.tagline);
-    projectDiv.append(projectTagLine);
+    var projectThumb = $("<img>")
+      .attr("src", thumbnail)
+      .attr("alt", p)
+      .addClass("img-fluid");
+    projectDiv.prepend(projectThumb);
     projectDiv.append(projectName);
+    projectDiv.append(projectTagLine);
     projectDiv.attr("id", "flyIn");
     disp.append(projectDiv);
   }
@@ -327,9 +350,47 @@ function displayAbout() {
   aboutDisp.append(profDisp).append(bioDiv);
 }
 
+disp.on("click", ".games", function() {
+  disp.empty();
+  projDisp.removeAttr("id", "info");
+  $(".navButton").removeClass("active");
+  aboutDisp.empty();
+  projDisp.empty();
+  imgDisp.removeAttr("id", "flyIn").empty();
+  projDisp.attr("id", "info");
+  for (g in games) {
+    var title = games[g].title;
+    var description = games[g].description;
+    var link = games[g].link;
+    var play = games[g].play;
+    var titleH = $("<h2>")
+      .addClass("title")
+      .text(title);
+    var linkDom = $("<a>")
+      .attr("href", link)
+      .attr("id", "link")
+      .attr("target", "_blank")
+      .text(`GitHub Repository`);
+    var descP = $("<p>")
+      .addClass("desc")
+      .text(description);
+    var playDom = $("<a>")
+      .attr("href", play)
+      .attr("id", "link")
+      .attr("target", "_blank")
+      .text(`Play Game`);
+    projDisp
+      .append(titleH)
+      .append(descP)
+      .append(linkDom)
+      .append(playDom);
+  }
+});
+
 //view button function
 disp.on("click", ".project", function() {
-  $(window).scrollTop(0);
+  // $(window).scrollTop(0);
+  disp.empty();
   projDisp.removeAttr("id", "info");
   var windowSize = $($(window).width());
   console.log(windowSize[0]);
@@ -342,7 +403,7 @@ disp.on("click", ".project", function() {
   projDisp.empty();
   //   disp.removeAttr("id", "flyIn").empty();
   imgDisp.removeAttr("id", "flyIn").empty();
-  imgDisp.css("height", "400px");
+  // imgDisp.css("height", "400px");
   projDisp.attr("id", "info");
   var v = $(this).attr("data-value");
   var title = projects[v].title;
