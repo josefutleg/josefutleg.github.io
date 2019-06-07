@@ -270,6 +270,7 @@ a.fas {
 #profileImg {
   width: 80%;
   margin-top: 110px;
+  -webkit-clip-path: circle(36% at center);
   clip-path: circle(36% at center);
 }
 
