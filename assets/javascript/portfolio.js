@@ -30,7 +30,7 @@ var projects = [
     tagline: "Spotify playlist generator",
     link: "https://github.com/josefutleg/dig-app-new",
     description:
-      "Web application that uses Spotify's API. User signs into their own Spotify account to use Dig to search for a song or artist they like. Once a song or artist is chosen, Dig will use Spotify's API documentation to find the chosen artist's related artists. Dig will then start browsing the related artists album and pull one or two random songs to add to the new playlist. As the songs are being added, they are also being sorted based on the song's key and tempo. As the key progresses from 1 to 9, the tempo will increase and restart at the lowest as the key changes. The playlist will embed to Dig's page for the user to listen to. Every playlist the user creates will save to their Spotify accounts. All of the playlists Dig creates will also save to Dig also uses MongoDB as a database to store all of the playlists created for other users to browse and add to their own accounts. Your own personal DJ!",
+      "A React.js web application that uses Spotify's API. The user will link their Spotify account to use Dig to search for a track or artist they like. User authentication is handled on the server side using Node.js with Express.Once a track or artist is chosen, Dig will use Spotify's API documentation to browse the related artists' albums to pull tracks to add to the new playlist. Tracks are sorted primarily by key and secondarily by tempo. As the key progresses from 1 to 9, the tempo will increase and restart at the lowest as the key changes. This is possible with track audio features provided by Spotify's API.Once complete, the playlist will embed to Dig's page for instant playback as well as to the user's Spotify account for later listens. All of the playlists created with Dig will also save to its MongoDB powered database to store all of the playlists created for other users to browse and add to their own accounts.",
     tools: [
       "Node.js",
       "React",
@@ -173,11 +173,11 @@ var projects = [
 
 var games = [
   {
-    title: "word guess game",
+    title: "word guess game (desktop only)",
     link: "https://github.com/josefutleg/word-guess-game",
     play: "https://josefutleg.github.io/word-guess-game/",
     description:
-      "Hangman style word guess game. Guess four of Frank Ocean's songs in a row for a surprise! Click 'play' to test your Frank knowledge!",
+      "Hangman style word guess game. Guess four of Frank Ocean's songs in a row for a surprise! Click 'play' to test your Frank knowledge! JavaScript-based game focusing on key presses.",
     thumb: "assets/images/games/games-thumb.png"
   },
   {
@@ -185,7 +185,7 @@ var games = [
     link: "https://github.com/josefutleg/TriviaGame",
     play: "https://josefutleg.github.io/TriviaGame/",
     description:
-      "Test your knowledge of San Francisco's history with this triva game!"
+      "Test your knowledge of San Francisco's history with this triva game! JQuery-based trivia game focused on time intervals and radio input forms."
   }
 ];
 var nav = $(".navContainer");
@@ -277,6 +277,10 @@ nav.on("click", "button", function() {
     displayProjects();
   }
 });
+
+nav.on("click", ".logo", function(){
+  displayAbout();
+})
 
 function displayProjects() {
   $(window).scrollTop(0);
