@@ -189,7 +189,9 @@ a.fas {
   background-color: lightgrey;
   padding: 10px;
   position: relative;
+  -webkit-clip-path: inset(0px 0px);
   clip-path: inset(0px 0px);
+
 }
 
 .title {
