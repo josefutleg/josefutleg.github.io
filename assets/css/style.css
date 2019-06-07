@@ -373,6 +373,15 @@ a.fas {
   .contactContainer {
     float: initial;
   }
+
+  .logo {
+    margin: 14px;
+  }
+
+  .contactP {
+    margin-left: 12px;
+  }
+
   .project,
   .games {
     width: 96%;
