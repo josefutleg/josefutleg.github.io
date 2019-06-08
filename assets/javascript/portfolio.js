@@ -278,9 +278,10 @@ nav.on("click", "button", function() {
   }
 });
 
-nav.on("click", ".logo", function(){
+nav.on("click", ".logo", function() {
   displayAbout();
-})
+  $(".navButton").removeClass("active");
+});
 
 function displayProjects() {
   $(window).scrollTop(0);
@@ -297,7 +298,7 @@ function displayProjects() {
     .text("games");
   var gamesTagLine = $("<p>")
     .addClass("pTag")
-    .text("games games games!");
+    .text("Games games games!");
   var gamesThumb = $("<img>")
     .attr("src", games[0].thumb)
     .attr("alt", "games")
