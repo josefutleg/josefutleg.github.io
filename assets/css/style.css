@@ -63,7 +63,7 @@ button:hover,
   border-radius: 50%;
 }
 .logo:hover {
-  background-color: aquamarine;
+  border: 1px aquamarine solid;
   cursor: pointer;
 }
 /* #thin:hover,
