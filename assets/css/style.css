@@ -126,8 +126,8 @@ a.fas {
 
 .project:hover,
 .games:hover {
-  background-color: lightcoral;
-  color: lightcoral;
+  background-color: lightseagreen;
+  color: lightseagreen;
   cursor: pointer;
   animation: fadeIn ease 1s;
 }
