@@ -99,11 +99,11 @@ a.fas {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
   font-style: italic;
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
-  left: 0;
+  left: 100;
   top: 200px;
-  width: 100%;
+  /* width: 90%; */
   position: relative;
   -webkit-animation: fadeinout 4s linear 1 forwards;
   animation: fadeinout 3s linear 1 forwards;
