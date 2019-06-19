@@ -27,7 +27,7 @@ var projects = [
   {
     //dig
     title: "dig",
-    tagline: "Spotify playlist generator",
+    tagline: "Create a curated music playlist with ease!",
     link: "https://github.com/josefutleg/dig-app-new",
     description:
       "A React.js web application that uses Spotify's API. The user will link their Spotify account to use Dig to search for a track or artist they like. User authentication is handled on the server side using Node.js with Express.Once a track or artist is chosen, Dig will use Spotify's API documentation to browse the related artists' albums to pull tracks to add to the new playlist. Tracks are sorted primarily by key and secondarily by tempo. As the key progresses from 1 to 9, the tempo will increase and restart at the lowest as the key changes. This is possible with track audio features provided by Spotify's API.Once complete, the playlist will embed to Dig's page for instant playback as well as to the user's Spotify account for later listens. All of the playlists created with Dig will also save to its MongoDB powered database to store all of the playlists created for other users to browse and add to their own accounts.",
@@ -56,10 +56,10 @@ var projects = [
   {
     //liri
     title: "liri",
-    tagline: "Node based assistant",
+    tagline: "Ask liri to find a song, movie, or send a tweet!",
     link: "https://github.com/josefutleg/liri-node-app",
     description:
-      "Node.js based assistant application using APIs of Spotify, Twitter, & OMDB. Liri will provide four options - Find a Movie, Find a Song, Tweet a Message, and Surprise Me. User can then search for a song, movie, tweet a message or use Surprise Me to have Liri decide what will be done.",
+      "Node.js-based assistant application using APIs of Spotify, Twitter, & OMDB. Liri will provide four options - Find a Movie, Find a Song, Tweet a Message, and Surprise Me. User can then search for a song, movie, tweet a message or use Surprise Me to have Liri decide what will be done.",
     tools: [
       "Node.js",
       "Spotify's API",
@@ -77,12 +77,12 @@ var projects = [
       "assets/images/liri/liri-04.png",
       "assets/images/liri/liri-05.png"
     ],
-    thumb: "assets/images/liri/liri-thumb.png"
+    thumb: "assets/images/liri/liri-thumb.jpg"
   },
   {
     //scraper
     title: "scraper",
-    tagline: "Webpage scraper",
+    tagline: "Pull news articles from SF Chronicle instantly!",
     link: "https://github.com/josefutleg/mongo-scraper",
     description:
       "Web application that scrapes SF Chronicle's website for articles to read/save. Application uses ejs for the HTML pages, cheerio to scrape SF Chronicle's homepage for recent articles, and MongoDB to store saved articles. User can also comment on saved articles for personal notes/reminders",
@@ -103,12 +103,12 @@ var projects = [
       "assets/images/scraper/scraper-6.png",
       "assets/images/scraper/scraper-7.png"
     ],
-    thumb: "assets/images/scraper/scraper-thumb.png"
+    thumb: "assets/images/scraper/scraper-thumb.jpg"
   },
   {
     //bamazon
     title: "bamazon",
-    tagline: "Node based shopping application",
+    tagline: "Node-based, MySQL-powered shopping",
     link: "https://github.com/josefutleg/hw-8-bamazon",
     description:
       "Node.js based application that allows user to shop for products within Bamazon's inventory. Using MySQL to store inventory and npm package Inquirer, Bamazon will display all inventory, drink type, drink name, and price. Once user selects drink and quantity, Bamazon will check stock to make sure stock meets user's quantity request. If there is sufficient stock, transaction will complete and update database's inventory, otherwise Bamazon will notify user there is insufficient stock and restart the inquiry cycle.",
@@ -125,7 +125,7 @@ var projects = [
       "assets/images/bamazon/04-bamazon_db-After Purchase.png",
       "assets/images/bamazon/05-bamazon-Insufficient Quantity.png"
     ],
-    thumb: "assets/images/bamazon/bamazon-thumb.png"
+    thumb: "assets/images/bamazon/bamazon-thumb.jpg"
   },
   {
     //memelash
@@ -148,7 +148,7 @@ var projects = [
   {
     //memelash
     title: "gif-tastic",
-    tagline: "GIF search application",
+    tagline: "Search and save GIFs!",
     link: "https://github.com/josefutleg/GifTastic",
     description:
       "Gif searching app that allows users to find gifs based on search word and rating. Users can save favorite gifs locally during session or save to computer.",
@@ -198,11 +198,11 @@ var greetDisp = $(".greetingContainer");
 $(document).ready(function() {
   var time = new Date().getHours();
   if (time >= 0 && time < 12) {
-    greetDisp.append("good morning!");
+    greetDisp.append("good morning");
   } else if (time >= 12 && time < 17) {
-    greetDisp.append("good afternoon!");
+    greetDisp.append("good afternoon");
   } else if (time >= 17 && time < 24) {
-    greetDisp.append("good evening!");
+    greetDisp.append("good evening");
   }
   setTimeout(render, 3000);
   //   render();
@@ -211,6 +211,7 @@ $(document).ready(function() {
 });
 
 function render() {
+  greetDisp.empty();
   var contactContainer = $("<div>").addClass("contactContainer");
 
   for (i in indexes) {

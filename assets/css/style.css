@@ -46,10 +46,10 @@ button:hover,
 }
 
 .img-fluid {
-  max-width: 216%;
+  max-width: 152%;
   height: auto;
-  margin-top: -22%;
-  margin-left: -41%;
+  margin-top: -14%;
+  margin-left: -31%;
   opacity: 0.75;
 }
 
@@ -96,9 +96,10 @@ a.fas {
   color: white;
 }
 .greetingContainer {
-  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
   font-style: italic;
-  font-size: 40px;
+  font-size: 60px;
   text-align: center;
   left: 0;
   top: 200px;
@@ -181,10 +182,12 @@ a.fas {
 }
 
 .title {
+  font-family: 'Playfair Display', serif;
   text-align: center;
   margin-top: 60px;
   clear: both;
-  font-weight: bold;
+  font-weight: 900;
+  font-size: 40px;
 }
 
 .contactP {
@@ -276,10 +279,11 @@ a.fas {
 }
 
 .pName {
-  font-weight: bold;
-  font-size: 28px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 40px;
   position: absolute;
-  top: 60px;
+  top: 46px;
   left: 0px;
   background-color: aquamarine;
   padding: 6px;
@@ -396,7 +400,7 @@ a.fas {
   #item {
     font-size: small;
   }
-  .pName {
+  /* .pName {
     font-size: 24px;
-  }
+  } */
 }
