@@ -13,7 +13,7 @@ var intro = $("<p>")
   );
 
 var bio = [
-  "Hi! My name is Josef Utleg and I am a Full-Stack Web Developer constantly striving to write clean and efficient code."
+  "Hi! My name is Josef Utleg and I am a Full-Stack Web Developer constantly exploring new concepts and methods in writing clean and efficient code with an aesthetically pleasing presentation."
 ];
 
 var contactInfo = {
@@ -158,7 +158,7 @@ var projects = [
       "Bootstrap",
       "Font Awesome Icons",
       "jQuery",
-      "Giphy's API"
+      "Giphy API"
     ],
     images: [
       "assets/images/gif-tastic/GifTastic_1.png",
@@ -167,7 +167,8 @@ var projects = [
       "assets/images/gif-tastic/GifTastic_4.png",
       "assets/images/gif-tastic/GifTastic_5.png"
     ],
-    thumb: "assets/images/gif-tastic/giftastic-thumb.png"
+    thumb: "assets/images/gif-tastic/giftastic-thumb.png",
+    play: "https://josefutleg.github.io/GifTastic/"
   }
 ];
 
@@ -178,14 +179,16 @@ var games = [
     play: "https://josefutleg.github.io/word-guess-game/",
     description:
       "Hangman style word guess game. Guess four of Frank Ocean's songs in a row for a surprise! Click 'play' to test your Frank knowledge! JavaScript-based game focusing on key presses.",
-    thumb: "assets/images/games/games-thumb.png"
+    thumb: "assets/images/games/games-thumb.png",
+    tools: ["HTML5", "CSS", "JavaScript"]
   },
   {
     title: "trivia game",
     link: "https://github.com/josefutleg/TriviaGame",
     play: "https://josefutleg.github.io/TriviaGame/",
     description:
-      "Test your knowledge of San Francisco's history with this triva game! JQuery-based trivia game focused on time intervals and radio input forms."
+      "Test your knowledge of San Francisco's history with this triva game! jQuery-based trivia game focused on time intervals and radio input forms.",
+    tools: ["HTML5", "CSS", "jQuery"]
   }
 ];
 var nav = $(".navContainer");
@@ -369,6 +372,7 @@ disp.on("click", ".games", function() {
     var description = games[g].description;
     var link = games[g].link;
     var play = games[g].play;
+    var tools = games[g].tools;
     var titleH = $("<h2>")
       .addClass("title")
       .text(title);
@@ -385,9 +389,21 @@ disp.on("click", ".games", function() {
       .attr("id", "link")
       .attr("target", "_blank")
       .text(`Play Game`);
+    var toolsList = $("<ul>").addClass("list");
+    var toolsH = $("<h4>")
+      .addClass("listH")
+      .text("Technologies");
+    for (t in tools) {
+      var toolsItem = $("<li>")
+        .attr("id", "item")
+        .text(tools[t]);
+      toolsList.append(toolsItem);
+    }
     projDisp
       .append(titleH)
       .append(descP)
+      .append(toolsH)
+      .append(toolsList)
       .append(linkDom)
       .append(playDom);
   }
@@ -417,6 +433,7 @@ disp.on("click", ".project", function() {
   var link = projects[v].link;
   var tools = projects[v].tools;
   var images = projects[v].images;
+  var play = projects[v].play;
   var titleH = $("<h2>")
     .addClass("title")
     .text(title);
@@ -445,6 +462,14 @@ disp.on("click", ".project", function() {
     projDisp.append(toolsList);
   }
   projDisp.append(linkDom);
+  if (projects[v].play) {
+    var playDom = $("<a>")
+      .attr("href", play)
+      .attr("id", "link")
+      .attr("target", "_blank")
+      .text(`View App`);
+    projDisp.append(playDom);
+  }
   for (i in images) {
     // console.log(images[i]);
     var docImg = $("<img>")
