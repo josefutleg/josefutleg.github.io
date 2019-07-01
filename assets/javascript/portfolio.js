@@ -51,7 +51,8 @@ var projects = [
       "assets/images/dig/dig-06.png",
       "assets/images/dig/dig-07.png"
     ],
-    thumb: "assets/images/dig/dig-thumb.png"
+    thumb: "assets/images/dig/dig-thumb.png",
+    play: "https://u-dig.herokuapp.com/"
   },
   {
     //liri
@@ -143,7 +144,8 @@ var projects = [
       "assets/images/memelash/memelash-5.png",
       "assets/images/memelash/memelash-6.png"
     ],
-    thumb: "assets/images/memelash/memelash-thumb.png"
+    thumb: "assets/images/memelash/memelash-thumb.png",
+    play: "https://josefutleg.github.io/memelash-firebase/"
   },
   {
     //memelash
