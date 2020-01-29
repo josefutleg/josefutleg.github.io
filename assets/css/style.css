@@ -126,7 +126,9 @@ a.fas {
 }
 
 .project:hover,
-.games:hover {
+.games:hover,
+.option:hover, 
+.arch-project:hover {
   background-color: lightseagreen;
   color: lightseagreen;
   cursor: pointer;
@@ -168,7 +170,9 @@ a.fas {
 }
 
 .project,
-.games {
+.games,
+.option,
+.arch-project {
   float: left;
   height: 200px;
   width: 46%;
@@ -390,7 +394,9 @@ a.fas {
   }
 
   .project,
-  .games {
+  .games,
+  .option,
+  .arch-project {
     width: 96%;
   }
   .projectContainer {

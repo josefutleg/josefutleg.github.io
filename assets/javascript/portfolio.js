@@ -23,6 +23,39 @@ var contactInfo = {
   phone: "14153093776"
 };
 
+var archProjects = [
+  {
+    title: "Bailey House",
+    tagline: "Pierre Koenig's Case Study House #21",
+    thumb: "assets/images/bailey/02-bailey.png",
+    images: ["assets/images/bailey/01-bailey.png"]
+  },
+  {
+    title: "Pool House",
+    tagline: "Pool House Study",
+    thumb: "assets/images/poolhouse/02-poolhouse.png",
+    images: ["assets/images/poolhouse/01-poolhouse.png"]
+  },
+  {
+    title: "Greenwich Street",
+    tagline: "San Francisco Loft Study",
+    thumb: "assets/images/greenwich/02-greenwich.png",
+    images: [
+      "assets/images/greenwich/01-greenwich.png",
+      "assets/images/greenwich/02-greenwich.png",
+    ]
+  },
+  {
+    title: "Palmito Drive",
+    tagline: "Kitchen Remodel",
+    thumb: "assets/images/palmito/00-palmito.png",
+    images: [
+      "assets/images/palmito/01-palmito.png",
+      "assets/images/palmito/02-palmito.png",
+    ]
+  },
+];
+
 var projects = [
   {
     //dig
@@ -200,7 +233,7 @@ var projDisp = $(".projectContainer");
 var imgDisp = $(".imageContainer");
 var greetDisp = $(".greetingContainer");
 
-$(document).ready(function() {
+$(document).ready(function () {
   var time = new Date().getHours();
   if (time >= 0 && time < 12) {
     greetDisp.append("good morning");
@@ -270,7 +303,7 @@ function render() {
 }
 
 // nav bar
-nav.on("click", "button", function() {
+nav.on("click", "button", function () {
   var button = $(this).text();
   if (button == "ME") {
     $(".navButton").removeClass("active");
@@ -280,14 +313,83 @@ nav.on("click", "button", function() {
   if (button == "WORK") {
     $(".navButton").removeClass("active");
     $(this).addClass("active");
-    displayProjects();
+    displayOptions();
   }
 });
 
-nav.on("click", ".logo", function() {
+nav.on("click", ".logo", function () {
   displayAbout();
   $(".navButton").removeClass("active");
 });
+var options = [
+  {
+    name: "code",
+    thumb: "assets/images/option-thumbs/code.png",
+  },
+
+  {
+    name: "architecture",
+    thumb: "assets/images/option-thumbs/arch.png",
+  }
+];
+
+
+function displayOptions() {
+  $(window).scrollTop(0);
+  greetDisp.empty();
+  disp.removeAttr("id", "flyIn").empty();
+  aboutDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.css("height", "").empty();
+  projDisp.removeAttr("id", "info").empty();
+  for (i in options) {
+    var name = options[i].name;
+    var thumbnail = options[i].thumb;
+    var projectDiv = $("<div>").addClass("option");
+    var projectName = $("<h4>").addClass("pName").text(name);
+    var projectThumb = $("<img>")
+      .attr("src", thumbnail)
+      .attr("alt", i).attr("data-value", name)
+      .addClass("img-fluid");
+    projectDiv.prepend(projectThumb);
+    projectDiv.append(projectName);
+    projectDiv.attr("id", "flyIn");
+    disp.append(projectDiv);
+  }
+}
+
+function displayArchProjects() {
+  $(window).scrollTop(0);
+  greetDisp.empty();
+  disp.removeAttr("id", "flyIn").empty();
+  aboutDisp.removeAttr("id", "flyIn").empty();
+  imgDisp.css("height", "").empty();
+  projDisp.removeAttr("id", "info").empty();
+
+  for (p in archProjects) {
+    var title = archProjects[p].title;
+    var thumbnail = archProjects[p].thumb;
+    var tagline = archProjects[p].tagline
+    var projectDiv = $("<div>")
+      .addClass("arch-project")
+      .attr("data-value", p);
+    var projectName = $("<h4>")
+      .addClass("pName")
+      .text(title);
+    var projectTagLine = $("<p>")
+      .addClass("pTag")
+      .text(tagline);
+    var projectThumb = $("<img>")
+      .attr("src", thumbnail)
+      .attr("alt", p)
+      .addClass("img-fluid");
+    projectDiv.prepend(projectThumb);
+    projectDiv.append(projectName);
+    projectDiv.append(projectTagLine);
+    projectDiv.attr("id", "flyIn");
+    disp.append(projectDiv);
+
+  }
+}
 
 function displayProjects() {
   $(window).scrollTop(0);
@@ -361,7 +463,7 @@ function displayAbout() {
   aboutDisp.append(profDisp).append(bioDiv);
 }
 
-disp.on("click", ".games", function() {
+disp.on("click", ".games", function () {
   disp.empty();
   projDisp.removeAttr("id", "info");
   $(".navButton").removeClass("active");
@@ -411,8 +513,15 @@ disp.on("click", ".games", function() {
   }
 });
 
+disp.on("click", ".option", function () {
+  var selection = $(this).text();
+  if (selection == "architecture") {
+    displayArchProjects();
+  } else displayProjects();
+})
+
 //view button function
-disp.on("click", ".project", function() {
+disp.on("click", ".project", function () {
   // $(window).scrollTop(0);
   disp.empty();
   projDisp.removeAttr("id", "info");
@@ -482,3 +591,40 @@ disp.on("click", ".project", function() {
   }
   //   console.log(projects[v].title);
 });
+
+disp.on("click", ".arch-project", function () {
+  // $(window).scrollTop(0);
+  disp.empty();
+  projDisp.removeAttr("id", "info");
+  var windowSize = $($(window).width());
+  console.log(windowSize[0]);
+  if (windowSize[0] <= 650) {
+    console.log("true");
+    disp.removeAttr("id", "flyIn").empty();
+  }
+  $(".navButton").removeClass("active");
+  aboutDisp.empty();
+  projDisp.empty();
+  //   disp.removeAttr("id", "flyIn").empty();
+  imgDisp.removeAttr("id", "flyIn").empty();
+  // imgDisp.css("height", "400px");
+  projDisp.attr("id", "info");
+  var v = $(this).attr("data-value");
+  var title = archProjects[v].title;
+  var images = archProjects[v].images;
+  var titleH = $("<h2>")
+    .addClass("title")
+    .text(title);
+  projDisp
+    .append(titleH)
+  for (i in images) {
+    // console.log(images[i]);
+    var docImg = $("<img>")
+      .attr("src", images[i])
+      .attr("alt", i)
+      .attr("id", "img");
+    imgDisp.append(docImg);
+  }
+  //   console.log(projects[v].title);
+});
+
