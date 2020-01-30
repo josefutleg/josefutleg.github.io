@@ -46,8 +46,12 @@ button:hover,
 }
 .back {
   position: fixed;
-  top: 107px;
-  left: 200px;
+  top: 90px;
+  left: 17%;
+  margin: auto;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 .img-fluid {
@@ -413,7 +417,9 @@ a.fas {
   }
 
   .back {
-    left: 0px
+    left: inherit;
+    top: inherit;
+    bottom: 60px
   }
   /* .pName {
     font-size: 24px;
