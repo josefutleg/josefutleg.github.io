@@ -211,7 +211,7 @@ var projects = [
 
 var games = [
   {
-    title: "word guess game (desktop only)",
+    title: "word guess (desktop only)",
     link: "https://github.com/josefutleg/word-guess-game",
     play: "https://josefutleg.github.io/word-guess-game/",
     description:
@@ -220,7 +220,7 @@ var games = [
     tools: ["HTML5", "CSS", "JavaScript"]
   },
   {
-    title: "trivia game",
+    title: "SF trivia",
     link: "https://github.com/josefutleg/TriviaGame",
     play: "https://josefutleg.github.io/TriviaGame/",
     description:
