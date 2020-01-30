@@ -497,7 +497,7 @@ disp.on("click", ".games", function () {
     var toolsH = $("<h4>")
       .addClass("listH")
       .text("Technologies");
-    var backButton = $("<button>").addClass("back").attr("data-value", "code").text("back");
+    var backButton = $("<button>").addClass("back").attr("data-value", "code").text("BACK");
     for (t in tools) {
       var toolsItem = $("<li>")
         .attr("id", "item")
@@ -506,12 +506,12 @@ disp.on("click", ".games", function () {
     }
     projDisp
       .append(titleH)
+      .append(backButton)
       .append(descP)
       .append(toolsH)
       .append(toolsList)
       .append(linkDom)
-      .append(playDom)
-      .append(backButton);
+      .append(playDom);
   }
 });
 
@@ -562,7 +562,7 @@ disp.on("click", ".project", function () {
     .addClass("listH")
     .text("Technologies");
   var toolsList = $("<ul>").addClass("list");
-  var backButton = $("<button>").addClass("back").attr("data-value", "code").text("back");
+  var backButton = $("<button>").addClass("back").attr("data-value", "code").text("BACK");
   projDisp
     .append(titleH)
     .append(descP)
@@ -619,7 +619,7 @@ disp.on("click", ".arch-project", function () {
   var titleH = $("<h2>")
     .addClass("title")
     .text(title);
-  var backButton = $("<button>").addClass("back").attr("data-value", "arch").text("back");
+  var backButton = $("<button>").addClass("back").attr("data-value", "arch").text("BACK");
   // navDiv.append(backButton).append(titleH);
   projDisp
     .append(titleH).append(backButton);

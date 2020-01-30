@@ -47,11 +47,15 @@ button:hover,
 .back {
   position: fixed;
   top: 90px;
-  left: 17%;
+  left: 18%;
   margin: auto;
   height: 60px;
   width: 60px;
   border-radius: 50%;
+  opacity: .80;
+}
+.back:hover {
+  opacity: 1;
 }
 
 .img-fluid {
@@ -419,7 +423,8 @@ a.fas {
   .back {
     left: inherit;
     top: inherit;
-    bottom: 60px
+    bottom: 60px;
+    opacity: .80;
   }
   /* .pName {
     font-size: 24px;
