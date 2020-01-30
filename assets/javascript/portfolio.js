@@ -12,10 +12,12 @@ var intro = $("<p>")
     "Hi! Thank you for stopping by! Please feel free to check out my projects and if you want to kill some time, click on Game to play a word guess game if you are on a desktop or a trivia game if you are viewing this page from your phone!"
   );
 
+// var bio = [
+//   "Hi! My name is Josef Utleg and I am a Full-Stack Web Developer constantly exploring new concepts and methods in writing clean and efficient code with an aesthetically pleasing presentation."
+// ];
 var bio = [
-  "Hi! My name is Josef Utleg and I am a Full-Stack Web Developer constantly exploring new concepts and methods in writing clean and efficient code with an aesthetically pleasing presentation."
+  "Creating is my passion. Whether through coding or architecture, I strive to build aesthetically pleasing experiences with a strong sense of effiency and functionality. I am constantly exploring new concepts and methods and always finding inspiration in my environment. With a background in architecture, I would love to contribute to Architecture, Engineering, and Construction (AEC) industry by incorporating it with the ever-evolving world of technology."
 ];
-
 var contactInfo = {
   email: "mailto:josefutleg@gmail.com",
   linkedin: "https://www.linkedin.com/in/josefutleg/",
