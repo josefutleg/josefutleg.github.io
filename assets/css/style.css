@@ -421,10 +421,10 @@ a.fas {
   }
 
   .back {
-    left: inherit;
+    left: 78%;
     top: inherit;
     bottom: 60px;
-    opacity: .80;
+    opacity: .75;
   }
   /* .pName {
     font-size: 24px;
