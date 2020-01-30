@@ -497,6 +497,7 @@ disp.on("click", ".games", function () {
     var toolsH = $("<h4>")
       .addClass("listH")
       .text("Technologies");
+    var backButton = $("<button>").addClass("back").attr("data-value", "code").text("back");
     for (t in tools) {
       var toolsItem = $("<li>")
         .attr("id", "item")
@@ -509,7 +510,8 @@ disp.on("click", ".games", function () {
       .append(toolsH)
       .append(toolsList)
       .append(linkDom)
-      .append(playDom);
+      .append(playDom)
+      .append(backButton);
   }
 });
 
@@ -560,10 +562,12 @@ disp.on("click", ".project", function () {
     .addClass("listH")
     .text("Technologies");
   var toolsList = $("<ul>").addClass("list");
+  var backButton = $("<button>").addClass("back").attr("data-value", "code").text("back");
   projDisp
     .append(titleH)
     .append(descP)
-    .append(toolsH);
+    .append(toolsH)
+    .append(backButton);
   for (t in tools) {
     // console.log(tools[t]);
     var toolsItem = $("<li>")
@@ -615,8 +619,10 @@ disp.on("click", ".arch-project", function () {
   var titleH = $("<h2>")
     .addClass("title")
     .text(title);
+  var backButton = $("<button>").addClass("back").attr("data-value", "arch").text("back");
+  // navDiv.append(backButton).append(titleH);
   projDisp
-    .append(titleH)
+    .append(titleH).append(backButton);
   for (i in images) {
     // console.log(images[i]);
     var docImg = $("<img>")
@@ -627,4 +633,12 @@ disp.on("click", ".arch-project", function () {
   }
   //   console.log(projects[v].title);
 });
+
+projDisp.on("click", ".back", function () {
+  var d = $(this).data("value")
+  console.log(d)
+  if (d == "arch") {
+    displayArchProjects();
+  } else displayProjects();
+})
 

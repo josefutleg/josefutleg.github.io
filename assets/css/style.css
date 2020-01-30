@@ -44,6 +44,11 @@ button:hover,
   /* width: 70%; */
   margin: auto;
 }
+.back {
+  position: fixed;
+  top: 107px;
+  left: 200px;
+}
 
 .img-fluid {
   max-width: 152%;
@@ -405,6 +410,10 @@ a.fas {
   .desc,
   #item {
     font-size: small;
+  }
+
+  .back {
+    left: 0px
   }
   /* .pName {
     font-size: 24px;
