@@ -48,6 +48,15 @@ var archProjects = [
     ]
   },
   {
+    title: "X-Arts Sudio",
+    tagline: "Detached USF Arts Studio",
+    thumb: "assets/images/xarts/03-xarts.png",
+    images: [
+      "assets/images/xarts/01-xarts.png",
+      "assets/images/xarts/02-xarts.png",
+    ]
+  },
+  {
     title: "Palmito Drive",
     tagline: "Kitchen Remodel",
     thumb: "assets/images/palmito/00-palmito.png",
