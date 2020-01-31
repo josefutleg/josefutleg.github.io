@@ -16,7 +16,7 @@ var intro = $("<p>")
 //   "Hi! My name is Josef Utleg and I am a Full-Stack Web Developer constantly exploring new concepts and methods in writing clean and efficient code with an aesthetically pleasing presentation."
 // ];
 var bio = [
-  "Creating is my passion. Whether through coding or architecture, my mission is to build aesthetically pleasing experiences for everyone with a strong sense of effiency and functionality. I am constantly exploring new concepts and methods and always finding inspiration in my environment. As I strive to make an impact on the world through my work, coming a background in architecture I would love to contribute to Architecture, Engineering, and Construction (AEC) industry by incorporating it with the ever-evolving world of technology."
+  "Creating is my passion. Whether through coding or architecture, my mission is to build aesthetically pleasing experiences for everyone with a strong sense of effiency and functionality. I am constantly exploring new concepts and methods and always finding inspiration in my environment. As I strive to make an impact on the world through my work, coming from a background in architecture I would love to contribute to the Architecture, Engineering, and Construction (AEC) industry by incorporating it with the ever-evolving world of technology."
 ];
 var contactInfo = {
   email: "mailto:josefutleg@gmail.com",
